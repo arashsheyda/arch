@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Headlines } from '~eos/types/headlines'
+import type { Headlines } from '~arch/types/headlines'
 
 defineProps({
   title: {

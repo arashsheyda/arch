@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Variants } from '~eos/types/variants'
+import type { Variants } from '~arch/types/variants'
 
 defineProps({
   type: {

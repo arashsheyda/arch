@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import type { Variants } from '~eos/types/variants'
-import type { Sizes } from '~eos/types/sizes'
+import type { Variants } from '~arch/types/variants'
+import type { Sizes } from '~arch/types/sizes'
 
 const props = defineProps({
   variant: {

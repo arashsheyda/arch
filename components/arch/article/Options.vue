@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { FontColor, FontFamily, FontSize } from '~eos/types/settings'
+import type { FontColor, FontFamily, FontSize } from '~arch/types/settings'
 
 const settings = useSettings()
 

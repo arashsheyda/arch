@@ -1,7 +1,7 @@
 {
   "name": "nuxt-arch",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Arch is a Nuxt 3 template for creating your personal website less than a minute.",
   "author": {
     "name": "Arash Sheyda",
