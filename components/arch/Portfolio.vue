@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import type { PropType } from 'vue'
-
 interface PortfolioLink {
   title: string
   icon: string

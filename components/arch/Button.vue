@@ -1,7 +1,6 @@
 <script lang="ts" setup>
-import type { PropType } from 'vue'
-import type { Variants } from '../../types/variants'
-import type { Sizes } from '../../types/sizes'
+import type { Variants } from '~eos/types/variants'
+import type { Sizes } from '~eos/types/sizes'
 
 const props = defineProps({
   variant: {

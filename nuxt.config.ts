@@ -3,6 +3,10 @@ const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
 
+  alias: {
+    '~eos': resolve('./'),
+  },
+
   css: [
     resolve('./assets/scss/style.scss'),
   ],

@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-import type { PropType } from 'vue'
-import type { Variants } from '../../types/variants'
+import type { Variants } from '~eos/types/variants'
 
 defineProps({
   type: {

@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import type { PropType } from 'vue'
 interface fetchProp {
   key: string
   path: string

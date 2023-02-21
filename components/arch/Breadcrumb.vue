@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-import type { PropType } from 'vue'
-import type { Headlines } from '../../types/headlines'
+import type { Headlines } from '~eos/types/headlines'
 
 defineProps({
   title: {
