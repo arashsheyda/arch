@@ -1,5 +1,21 @@
+<script lang="ts" setup>
+defineProps({
+  minimizer: {
+    type: Boolean,
+    required: false,
+    default: null,
+  },
+  sticky: {
+    type: Boolean,
+    default: false,
+  },
+})
+
+const { minimize, minimized } = useSidebar()
+</script>
+
 <template>
-  <aside class="info-sidebar" :class="[{ 'minimized': minimized }, minimized ? 'col-12 col-md-12 col-lg-1' : 'col-12 col-md-12 col-lg-3']">
+  <aside class="info-sidebar" :class="[{ minimized }, minimized ? 'col-12 col-md-12 col-lg-1' : 'col-12 col-md-12 col-lg-3']">
     <div :class="{ 'sticky-sidebar': sticky }">
       <div v-if="minimizer != null" class="minimizer" @click="minimize">
         <Icon v-if="minimized" name="uil:circle" />
@@ -9,22 +25,6 @@
     </div>
   </aside>
 </template>
-
-<script lang="ts" setup>
-defineProps({
-  minimizer: {
-    type: Boolean,
-    required: false,
-    default: null
-  },
-  sticky: {
-    type: Boolean,
-    default: false
-  }
-})
-
-const { minimize, minimized } = useSidebar()
-</script>
 
 <style lang="scss">
 .sticky-sidebar {

@@ -4,67 +4,59 @@ const { resolve } = createResolver(import.meta.url)
 export default defineNuxtConfig({
 
   css: [
-    resolve('./assets/scss/style.scss')
+    resolve('./assets/scss/style.scss'),
   ],
 
   router: {
     options: {
       linkActiveClass: 'active',
-      linkExactActiveClass: 'active'
-    }
+      linkExactActiveClass: 'active',
+    },
   },
 
   components: [
     {
       global: true,
       prefix: 'arch',
-      path: resolve('./components/arch')
-    }
+      path: resolve('./components/arch'),
+    },
   ],
 
   modules: [
     'nuxt-icon',
     'pinceau/nuxt',
     '@nuxt/content',
-    '@nuxt/devtools',
     '@nuxt/image-edge',
     '@nuxtjs/color-mode',
-    'nuxt-config-schema'
+    'nuxt-config-schema',
   ],
 
   pinceau: {
-    studio: true,
     preflight: false,
-    configFileName: 'tokens.config'
+    configFileName: 'tokens.config',
   },
 
   content: {
     documentDriven: true,
     highlight: {
       theme: {
-        default: 'one-dark-pro'
-      }
+        default: 'one-dark-pro',
+      },
     },
     navigation: {
-      fields: ['title', 'icon', '_path']
-    }
+      fields: ['title', 'icon', '_path'],
+    },
   },
 
   colorMode: {
     hid: 'color-mode-script',
     globalName: '__COLOR_MODE__',
-    storageKey: 'color-mode'
-  }
+    storageKey: 'color-mode',
+  },
 
-  // nitro: {
-  //   prerender: {
-  //     crawlLinks: true,
-  //     routes: [
-  //       '/',
-  //       '/feed.xml',
-  //       '/feed.json',
-  //       '/feed.atom'
-  //     ]
-  //   }
-  // }
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+    },
+  },
 })

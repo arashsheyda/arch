@@ -1,22 +1,9 @@
-<template>
-  <div class="color-mode-wrapper" :class="{'fixed': fixed}">
-    <ClientOnly>
-      <button class="color-mode" aria-label="Color Mode" @click="toggleTheme">
-        <Icon v-if="colorMode.preference === 'dark'" name="uil:moon" />
-        <Icon v-else-if="colorMode.preference === 'light'" name="uil:sun" />
-        <Icon v-else-if="colorMode.preference === 'sepia'" name="uil:coffee" />
-        <Icon v-else name="uil:desktop" />
-      </button>
-    </ClientOnly>
-  </div>
-</template>
-
 <script lang="ts" setup>
 defineProps({
   fixed: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 })
 
 const colorMode = useColorMode()
@@ -28,6 +15,19 @@ const toggleTheme = () => {
   colorMode.preference = values[next]
 }
 </script>
+
+<template>
+  <div class="color-mode-wrapper" :class="{ fixed }">
+    <ClientOnly>
+      <button class="color-mode" aria-label="Color Mode" @click="toggleTheme">
+        <Icon v-if="colorMode.preference === 'dark'" name="uil:moon" />
+        <Icon v-else-if="colorMode.preference === 'light'" name="uil:sun" />
+        <Icon v-else-if="colorMode.preference === 'sepia'" name="uil:coffee" />
+        <Icon v-else name="uil:desktop" />
+      </button>
+    </ClientOnly>
+  </div>
+</template>
 
 <style lang="scss">
 .color-mode-wrapper {

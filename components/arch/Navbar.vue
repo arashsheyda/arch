@@ -1,13 +1,3 @@
-<template>
-  <nav id="main-nav" ref="navbarRef" class="nav">
-    <NuxtLink v-for="item in tree" :key="item._path" :to="item._path" class="nav-item" :class="{ 'active': item.children && $route.path.includes(item._path) }">
-      <Icon v-if="item.icon" :name="item.icon" />
-      {{ item.title }}
-    </NuxtLink>
-    <ArchColorMode />
-  </nav>
-</template>
-
 <script lang="ts" setup>
 import { useWindowSize } from '@vueuse/core'
 
@@ -18,7 +8,8 @@ const filtered = computed(() => arch.value.navigation?.exclude || [])
 
 const tree = computed(() => {
   return (navigation.value || []).filter((item: any) => {
-    if (filtered.value.includes(item._path as never)) { return false }
+    if (filtered.value.includes(item._path as never))
+      return false
     return true
   })
 })
@@ -31,19 +22,20 @@ watch(width, () => {
   if (width.value > 787) {
     navbarRefPosition.value = navbarRef.value!.offsetTop
     navbarRef.value!.classList.add('fixed-nav')
-  } else {
+  }
+  else {
     navbarRef.value!.classList.remove('fixed-nav')
   }
 })
 
-function addClass () {
+function addClass() {
   if (width.value > 787) {
-    if (window.scrollY > navbarRefPosition.value) {
+    if (window.scrollY > navbarRefPosition.value)
       navbarRef.value!.classList.add('fixed-nav')
-    } else {
+    else
       navbarRef.value!.classList.remove('fixed-nav')
-    }
-  } else {
+  }
+  else {
     navbarRef.value!.classList.remove('fixed-nav')
   }
 }
@@ -53,6 +45,16 @@ onMounted(() => {
   window.addEventListener('scroll', addClass)
 })
 </script>
+
+<template>
+  <nav id="main-nav" ref="navbarRef" class="nav">
+    <NuxtLink v-for="item in tree" :key="item._path" :to="item._path" class="nav-item" :class="{ active: item.children && $route.path.includes(item._path) }">
+      <Icon v-if="item.icon" :name="item.icon" />
+      {{ item.title }}
+    </NuxtLink>
+    <ArchColorMode />
+  </nav>
+</template>
 
 <style lang="scss">
 .nav {

@@ -19,14 +19,14 @@ If you want to add Arch to an existing codebase, you can do so with:
 - Install the dependency:
 
 ```bash
-npm install arch-nuxt --dev
+npm install nuxt-arch --dev
 ```
 
 - Add it to your extends key in `nuxt.config.ts`:
 
 ```ts
 defineNuxtConfig({
-  extends: 'arch-nuxt'
+  extends: 'nuxt-arch'
 })
 ```
 

@@ -1,37 +1,37 @@
+<script lang="ts" setup>
+defineProps({
+  url: {
+    type: String,
+    required: true,
+  },
+  zoom: {
+    type: Number,
+    required: false,
+    default: 10,
+  },
+  height: {
+    type: String,
+    required: false,
+    default: '400px',
+  },
+  grayscale: {
+    type: Boolean,
+    required: false,
+    default: true,
+  },
+})
+</script>
+
 <template>
   <iframe
     class="map"
     title="Map"
-    :class="{'grayscale': grayscale}"
+    :class="{ grayscale }"
     :src="url"
     loading="lazy"
     referrerpolicy="no-referrer-when-downgrade"
   />
 </template>
-
-<script lang="ts" setup>
-defineProps({
-  url: {
-    type: String,
-    required: true
-  },
-  zoom: {
-    type: Number,
-    required: false,
-    default: 10
-  },
-  height: {
-    type: String,
-    required: false,
-    default: '400px'
-  },
-  grayscale: {
-    type: Boolean,
-    required: false,
-    default: true
-  }
-})
-</script>
 
 <style lang="scss">
 .map {

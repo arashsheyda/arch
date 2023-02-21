@@ -1,3 +1,17 @@
+<script lang="ts" setup>
+interface Props {
+  name: string
+  icon?: string
+  description?: string
+  flex?: boolean
+  skills?: boolean
+}
+
+defineProps<Props>()
+
+const minimized = ref(false)
+</script>
+
 <template>
   <div class="row">
     <div class="resume-list col-12">
@@ -6,7 +20,7 @@
         {{ name }}
       </h2>
 
-      <div class="resume-items" :class="[flex ? 'row' : 'timeline', { 'minimized': minimized }, { 'row skills box box__border': skills }]">
+      <div class="resume-items" :class="[flex ? 'row' : 'timeline', { minimized }, { 'row skills box box__border': skills }]">
         <slot />
       </div>
 
@@ -17,20 +31,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-interface Props {
-  name: string;
-  icon?: string;
-  description?: string;
-  flex?: boolean;
-  skills?: boolean;
-}
-
-const minimized = ref(false)
-
-defineProps<Props>()
-</script>
 
 <style lang="scss">
 .timeline {

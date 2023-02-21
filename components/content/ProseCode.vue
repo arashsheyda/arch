@@ -1,3 +1,24 @@
+<script lang="ts" setup>
+import { useClipboard } from '@vueuse/core'
+
+defineProps({
+  code: {
+    type: String,
+    default: '',
+  },
+  language: {
+    type: String,
+    default: '',
+  },
+  filename: {
+    type: String,
+    default: '',
+  },
+})
+
+const { copy, copied } = useClipboard()
+</script>
+
 <template>
   <div v-if="code" class="code-block" :class="language">
     <span v-if="filename" class="filename">
@@ -13,27 +34,6 @@
     </button>
   </div>
 </template>
-
-<script lang="ts" setup>
-import { useClipboard } from '@vueuse/core'
-
-const { copy, copied } = useClipboard()
-
-defineProps({
-  code: {
-    type: String,
-    default: ''
-  },
-  language: {
-    type: String,
-    default: ''
-  },
-  filename: {
-    type: String,
-    default: ''
-  }
-})
-</script>
 
 <style lang="scss">
 .code-block {

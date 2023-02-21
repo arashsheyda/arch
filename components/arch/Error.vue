@@ -1,5 +1,42 @@
+<script lang="ts" setup>
+defineProps({
+  code: {
+    type: String,
+    required: true,
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+  message: {
+    type: String,
+    required: true,
+  },
+  redirectBack: {
+    type: Boolean,
+    default: true,
+    required: false,
+  },
+  redirectText: {
+    type: String,
+    default: 'Go to home',
+    required: false,
+  },
+  redirect: {
+    type: String,
+    default: '/',
+    required: false,
+  },
+  centered: {
+    type: Boolean,
+    default: true,
+    required: false,
+  },
+})
+</script>
+
 <template>
-  <div class="arch-error-message" :class="{ 'centered': centered }">
+  <div class="arch-error-message" :class="{ centered }">
     <main>
       <div class="error">
         <h1 class="gradient-text">
@@ -25,43 +62,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-defineProps({
-  code: {
-    type: String,
-    required: true
-  },
-  title: {
-    type: String,
-    required: true
-  },
-  message: {
-    type: String,
-    required: true
-  },
-  redirectBack: {
-    type: Boolean,
-    default: true,
-    required: false
-  },
-  redirectText: {
-    type: String,
-    default: 'Go to home',
-    required: false
-  },
-  redirect: {
-    type: String,
-    default: '/',
-    required: false
-  },
-  centered: {
-    type: Boolean,
-    default: true,
-    required: false
-  }
-})
-</script>
 
 <style lang="scss">
 .arch-error-message {

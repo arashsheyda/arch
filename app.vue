@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+const arch = useArch()
+</script>
+
 <template>
   <Html :lang="arch.locale">
     <Body>
@@ -7,10 +11,6 @@
     </Body>
   </Html>
 </template>
-
-<script lang="ts" setup>
-const arch = useArch()
-</script>
 
 <style lang="ts">
 css({

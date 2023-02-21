@@ -1,3 +1,30 @@
+<script lang="ts" setup>
+const { page } = useContent()
+
+const settings = useSettings()
+
+const route = useRoute()
+
+const [prev, next] = await queryContent()
+  .only(['_path', 'title'])
+  .sort({ date: 1 })
+  .findSurround(route.path)
+
+onMounted(() => {
+  const tocItems = document.querySelectorAll('.toc-item')
+
+  function updateActivTocItem() {
+    const fromTop = window.scrollY
+    tocItems.forEach((link: any) => {
+      const section = document.querySelector(link.hash)
+      link.classList.toggle('active', section && section.offsetTop - 70 <= fromTop)
+    })
+  }
+
+  window.addEventListener('scroll', updateActivTocItem)
+})
+</script>
+
 <template>
   <div class="row">
     <div class="col-12 col-md-12 col-lg-9">
@@ -64,33 +91,6 @@
     </ArchSidebar>
   </div>
 </template>
-
-<script lang="ts" setup>
-const { page } = useContent()
-
-const settings = useSettings()
-
-const route = useRoute()
-
-const [prev, next] = await queryContent()
-  .only(['_path', 'title'])
-  .sort({ date: 1 })
-  .findSurround(route.path)
-
-onMounted(() => {
-  const tocItems = document.querySelectorAll('.toc-item')
-
-  function updateActivTocItem () {
-    const fromTop = window.scrollY
-    tocItems.forEach((link: any) => {
-      const section = document.querySelector(link.hash)
-      link.classList.toggle('active', section && section.offsetTop - 70 <= fromTop)
-    })
-  }
-
-  window.addEventListener('scroll', updateActivTocItem)
-})
-</script>
 
 <style lang="scss">
 .icon-settings {

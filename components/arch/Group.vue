@@ -1,5 +1,33 @@
+<script lang="ts" setup>
+import type { PropType } from 'vue'
+interface fetchProp {
+  key: string
+  path: string
+  component: string
+}
+
+const props = defineProps({
+  fetch: {
+    type: Object as PropType<fetchProp>,
+    default: null,
+  },
+  gridable: {
+    type: Boolean,
+    default: false,
+  },
+  center: {
+    type: Boolean,
+    default: false,
+  },
+})
+
+const grid = ref<boolean>(false)
+
+const fetchData = props.fetch ? await useAsyncData(props.fetch!.key, () => queryContent(props.fetch!.path).sort({ date: -1 }).where({ published: true }).find()) : null
+</script>
+
 <template>
-  <div class="row eq-height" :class="[{ 'list': grid }, {'justify-content-center': center}]">
+  <div class="row eq-height" :class="[{ list: grid }, { 'justify-content-center': center }]">
     <template v-if="fetch">
       <component :is="fetch?.component" v-for="item in fetchData?.data.value" :key="item._id" :item="item" />
     </template>
@@ -13,35 +41,6 @@
     <Icon v-else name="tabler:list" />
   </div>
 </template>
-
-<script lang="ts" setup>
-import { PropType } from 'vue'
-interface fetchProp {
-    key: string,
-    path: string,
-    component: string,
-}
-
-const props = defineProps({
-  fetch: {
-    type: Object as PropType<fetchProp>,
-    default: null
-  },
-  gridable: {
-    type: Boolean,
-    default: false
-  },
-  center: {
-    type: Boolean,
-    default: false
-  }
-})
-
-const grid = ref<boolean>(false)
-
-const fetchData = props.fetch ? await useAsyncData(props.fetch!.key, () => queryContent(props.fetch!.path).sort({ date: -1 }).where({ published: true }).find()) : null
-
-</script>
 
 <style lang="scss">
 .eq-height {

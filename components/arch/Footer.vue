@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+const arch = useArch()
+</script>
+
 <template>
   <footer class="footer-wrapper">
     <div class="footer">
@@ -23,10 +27,6 @@
     </div>
   </footer>
 </template>
-
-<script lang="ts" setup>
-const arch = useArch()
-</script>
 
 <style lang="scss">
 .footer-wrapper {

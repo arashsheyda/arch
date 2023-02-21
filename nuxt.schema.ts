@@ -69,7 +69,7 @@ export default defineNuxtConfigSchema({
         email: '',
         phone: '',
         company: '',
-        location: ''
+        location: '',
       },
       layout: {},
       /**
@@ -81,10 +81,10 @@ export default defineNuxtConfigSchema({
          *
          * @studio-icon material-symbols:image
          */
-        image: 'https://raw.githubusercontent.com/arashsheyda/arch/main/example/public/assets/images/banner.png'
+        image: 'https://raw.githubusercontent.com/arashsheyda/arch/main/example/public/assets/images/banner.png',
       },
       navigation: {
-        exclude: []
+        exclude: [],
       },
       sidebar: {},
       footer: {
@@ -98,16 +98,16 @@ export default defineNuxtConfigSchema({
               properties: {
                 title: {
                   type: 'string',
-                  description: 'Title of the link'
+                  description: 'Title of the link',
                 },
                 url: {
                   type: 'string',
-                  description: 'URL when clicking on the link'
-                }
-              }
-            }
-          }
-        }
+                  description: 'URL when clicking on the link',
+                },
+              },
+            },
+          },
+        },
       },
       /**
        * Social links
@@ -125,29 +125,29 @@ export default defineNuxtConfigSchema({
             properties: {
               name: {
                 type: 'string',
-                description: 'Name of the social network'
+                description: 'Name of the social network',
               },
               icon: {
                 type: 'string',
-                description: 'check https://icones.js.org/ for icons'
+                description: 'check https://icones.js.org/ for icons',
               },
               url: {
                 type: 'string',
-                description: 'URL when clicking on the link'
+                description: 'URL when clicking on the link',
               },
               color: {
                 type: 'string',
-                description: 'Color when hover on the link'
+                description: 'Color when hover on the link',
               },
               target: {
                 type: 'string',
                 default: '_blank',
-                description: 'Target attribute of the link'
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+                description: 'Target attribute of the link',
+              },
+            },
+          },
+        },
+      },
+    },
+  },
 })

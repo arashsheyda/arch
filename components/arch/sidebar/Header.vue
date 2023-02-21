@@ -1,3 +1,25 @@
+<script lang="ts" setup>
+defineProps({
+  name: {
+    type: String,
+    default: 'Arch',
+  },
+  job: {
+    type: String,
+    default: 'Software Engineer',
+  },
+  image: {
+    type: String,
+    required: true,
+  },
+  hoverImage: {
+    type: String,
+    default: null,
+    required: false,
+  },
+})
+</script>
+
 <template>
   <div class="sidebar-info-header">
     <figure class="avatar-box">
@@ -14,28 +36,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-defineProps({
-  name: {
-    type: String,
-    default: 'Arch'
-  },
-  job: {
-    type: String,
-    default: 'Software Engineer'
-  },
-  image: {
-    type: String,
-    required: true
-  },
-  hoverImage: {
-    type: String,
-    default: null,
-    required: false
-  }
-})
-</script>
 
 <style lang="scss">
 

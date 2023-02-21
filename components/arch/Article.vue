@@ -1,3 +1,12 @@
+<script lang="ts" setup>
+defineProps({
+  item: {
+    type: Object,
+    required: true,
+  },
+})
+</script>
+
 <template>
   <article class="article-item">
     <NuxtLink class="article-item-link" :to="item._path">
@@ -28,15 +37,6 @@
     </div>
   </article>
 </template>
-
-<script lang="ts" setup>
-defineProps({
-  item: {
-    type: Object,
-    required: true
-  }
-})
-</script>
 
 <style lang="scss">
 h2 {

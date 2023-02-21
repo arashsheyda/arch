@@ -10,8 +10,6 @@ html {
   -webkit-overflow-scrolling: touch;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  // -ms-overflow-x: hidden;
-  // overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -39,46 +37,6 @@ body {
 @media only screen and (max-width: 580px) {
   body {
     line-height: 1.6;
-  }
-}
-
-html.is-scroll-disabled body {
-  height: 100vh;
-  overflow: hidden;
-}
-
-@media all and (-ms-high-contrast: none),
-(-ms-high-contrast: active) {
-  html.is-scroll-disabled {
-    overflow: hidden;
-  }
-}
-
-.no-scroll {
-  overflow: hidden;
-  -ms-overflow-style: none;
-}
-
-.no-scroll-height {
-  overflow-x: hidden;
-}
-
-.svg-defs {
-  position: absolute;
-  height: 0;
-  width: 0;
-}
-
-.bg-triangles {
-  background-image: url(/assets/images/triangles-top.svg), url(/assets/images/triangles-bottom.svg), linear-gradient(145.44deg, #F2F4FA 0%, #FAFBFC 100%);
-  background-position: left top, right bottom;
-  background-repeat: no-repeat;
-  background-size: inherit;
-}
-
-@media only screen and (max-width: 580px) {
-  .bg-triangles {
-    background-size: contain;
   }
 }
 

@@ -1,16 +1,16 @@
+<script lang="ts" setup>
+const arch = useArch()
+</script>
+
 <template>
   <ul class="socials">
     <li v-for="social in arch.socials" :key="social.icon" class="social-item">
-      <a :href="social.url" :title="social.name" :target="social?.target" :rel="social?.target == '_blank' ? 'noopener noreferrer': ''" :class="social.icon.split(':')[1]">
-        <Icon :name="social.icon" :style="{'--social-hover': social.color}" />
+      <a :href="social.url" :title="social.name" :target="social?.target" :rel="social?.target === '_blank' ? 'noopener noreferrer' : ''" :class="social.icon.split(':')[1]">
+        <Icon :name="social.icon" :style="{ '--social-hover': social.color }" />
       </a>
     </li>
   </ul>
 </template>
-
-<script lang="ts" setup>
-const arch = useArch()
-</script>
 
 <style lang="scss">
 .socials {

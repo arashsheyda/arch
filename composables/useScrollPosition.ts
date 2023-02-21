@@ -8,6 +8,6 @@ export const useScrollPosition = () => {
   onUnmounted(() => window.removeEventListener('scroll', getScrollPosition))
 
   return {
-    scrollPosition
+    scrollPosition,
   }
 }

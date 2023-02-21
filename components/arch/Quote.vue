@@ -1,22 +1,22 @@
+<script lang="ts" setup>
+defineProps({
+  content: {
+    type: String,
+    required: true,
+  },
+  author: {
+    type: String,
+    required: true,
+  },
+})
+</script>
+
 <template>
   <blockquote class="block-quote">
     <p>{{ content }}</p>
     <span class="block-quote-author">{{ author }}</span>
   </blockquote>
 </template>
-
-<script lang="ts" setup>
-defineProps({
-  content: {
-    type: String,
-    required: true
-  },
-  author: {
-    type: String,
-    required: true
-  }
-})
-</script>
 
 <style lang="scss">
 .block-quote {
@@ -28,7 +28,7 @@ defineProps({
   line-height: 1.6;
 
   &::before {
-    background-image: url(/assets/icons/icon-quote.svg);
+    // background-image: url(/assets/icons/icon-quote.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;

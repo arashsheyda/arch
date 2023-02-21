@@ -1,19 +1,19 @@
-<template>
-  <span class="badge" :class="[`badge-${type}`]">New</span>
-</template>
-
 <script lang="ts" setup>
-import { PropType } from 'vue'
-import { Variants } from '../../types/variants'
+import type { PropType } from 'vue'
+import type { Variants } from '../../types/variants'
 
 defineProps({
   type: {
     type: String as PropType<Variants>,
     required: false,
-    default: 'primary'
-  }
+    default: 'primary',
+  },
 })
 </script>
+
+<template>
+  <span class="badge" :class="[`badge-${type}`]">New</span>
+</template>
 
 <style lang="scss">
 .badge {

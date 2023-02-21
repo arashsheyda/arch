@@ -1,3 +1,13 @@
+<script lang="ts" setup>
+interface Props {
+  icon?: string
+  image?: string
+  title: string
+  description: string
+}
+defineProps<Props>()
+</script>
+
 <template>
   <div class="col-12 col-lg-6">
     <div class="service-item">
@@ -16,16 +26,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-interface Props {
-  icon?: string;
-  image?: string;
-  title: string;
-  description: string;
-}
-defineProps<Props>()
-</script>
 
 <style lang="scss">
 .service-item {

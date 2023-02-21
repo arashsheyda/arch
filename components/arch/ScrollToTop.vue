@@ -1,17 +1,17 @@
+<script lang="ts" setup>
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  })
+}
+</script>
+
 <template>
   <div class="scroll-to-top" @click="scrollToTop">
     <Icon name="tabler:chevron-up" />
   </div>
 </template>
-
-<script lang="ts" setup>
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  })
-}
-</script>
 
 <style lang="scss">
 .scroll-to-top {

@@ -1,7 +1,7 @@
 import type { RouterConfig } from '@nuxt/schema'
 
 export default <RouterConfig>{
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
     const nuxtApp = useNuxtApp()
     const content = <HTMLElement>document.getElementById('box-content')
     const navHeight = document.getElementById('main-nav')?.offsetHeight || 0
@@ -27,12 +27,14 @@ export default <RouterConfig>{
       setTimeout(() => {
         let heading = document.querySelector(`[id="${to.hash.replace('#', '')}"]`) as any
 
-        if (!heading) { heading = document.querySelector(`[href$="${to.hash}"]`) as any }
+        if (!heading)
+          heading = document.querySelector(`[href$="${to.hash}"]`) as any
 
-        if (!heading) { return }
+        if (!heading)
+          return
         return window.scrollTo({
           top: heading.offsetTop + navPosition,
-          behavior: 'smooth'
+          behavior: 'smooth',
         })
       })
       return
@@ -43,22 +45,22 @@ export default <RouterConfig>{
       if (window.innerWidth > 787) {
         window.scrollTo({
           top: navPosition,
-          behavior: 'smooth'
+          behavior: 'smooth',
         })
-      } else {
+      }
+      else {
         window.scrollTo({
           top: content.offsetTop + (navHeight * 2),
-          behavior: 'smooth'
+          behavior: 'smooth',
         })
       }
       return
     }
 
     // If same route, do nothing
-    if (to.path === from.path) {
+    if (to.path === from.path)
       return
-    }
 
     return { top: 0 }
-  }
+  },
 }

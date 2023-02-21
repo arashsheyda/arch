@@ -1,12 +1,12 @@
+<script lang="ts" setup>
+const arch = useArch()
+</script>
+
 <template>
   <div class="header-image">
     <ProseImg v-if="arch.banner.image" :src="arch.banner.image" :alt="`${arch.info.name} Banner`" />
   </div>
 </template>
-
-<script lang="ts" setup>
-const arch = useArch()
-</script>
 
 <style lang="scss">
 .header-image {

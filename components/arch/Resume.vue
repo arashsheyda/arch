@@ -1,3 +1,42 @@
+<script lang="ts" setup>
+defineProps({
+  title: {
+    type: String,
+    required: true,
+  },
+  icon: {
+    type: String,
+    default: null,
+    required: false,
+  },
+  name: {
+    type: String,
+    default: null,
+    required: false,
+  },
+  date: {
+    type: String,
+    default: null,
+    required: false,
+  },
+  description: {
+    type: String,
+    default: null,
+    required: false,
+  },
+  location: {
+    type: String,
+    default: null,
+    required: false,
+  },
+  link: {
+    type: String,
+    default: null,
+    required: false,
+  },
+})
+</script>
+
 <template>
   <article class="timeline__item pb-4">
     <h5 class="title title--h5 timeline__title">
@@ -29,45 +68,6 @@
     </p>
   </article>
 </template>
-
-<script lang="ts" setup>
-defineProps({
-  title: {
-    type: String,
-    required: true
-  },
-  icon: {
-    type: String,
-    default: null,
-    required: false
-  },
-  name: {
-    type: String,
-    default: null,
-    required: false
-  },
-  date: {
-    type: String,
-    default: null,
-    required: false
-  },
-  description: {
-    type: String,
-    default: null,
-    required: false
-  },
-  location: {
-    type: String,
-    default: null,
-    required: false
-  },
-  link: {
-    type: String,
-    default: null,
-    required: false
-  }
-})
-</script>
 
 <style lang="scss">
 .timeline__item {

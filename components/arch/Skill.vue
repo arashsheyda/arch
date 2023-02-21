@@ -1,22 +1,22 @@
+<script lang="ts" setup>
+interface Props {
+  name: string
+  hover: string
+  color?: string
+  shadow?: boolean
+}
+
+withDefaults(defineProps<Props>(), {
+  shadow: true,
+  color: undefined,
+})
+</script>
+
 <template>
   <div class="skill" :style="{ '--skill-hover': `${hover}`, '--skill-color': `${color ? color : hover}` }">
     {{ name }}
   </div>
 </template>
-
-<script lang="ts" setup>
-interface Props {
-  name: string;
-  hover: string;
-  color?: string;
-  shadow?: boolean;
-}
-
-withDefaults(defineProps<Props>(), {
-  shadow: true,
-  color: undefined
-})
-</script>
 
 <style lang="scss">
 .skill {

@@ -1,122 +1,108 @@
-<template>
-  <div class="lite-youtube-embed" :style="{ backgroundImage: `url(${posterUrl})` }" @click="addIframe">
-    <button v-if="!iframe" class="lite-youtube-embed-button" />
-    <iframe
-      v-if="iframe"
-      ref="iframeElement"
-      :src="iframeSrc"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    />
-  </div>
-</template>
-
 <script lang="ts" setup>
-import { PropType } from 'vue'
+import type { PropType } from 'vue'
 
 type ImageResolution =
   | 'default'
   | 'mqdefault'
   | 'hqdefault'
   | 'sddefault'
-  | 'maxresdefault';
+  | 'maxresdefault'
 
 const props = defineProps({
   announce: {
     type: String,
     required: false,
-    default: 'Watch'
+    default: 'Watch',
   },
   id: {
     type: String,
-    required: true
+    required: true,
   },
   title: {
     type: String,
     required: false,
-    default: null
+    default: null,
   },
   activatedClass: {
     type: String,
     required: false,
-    default: 'lyt-activated'
+    default: 'lyt-activated',
   },
   adNetwork: {
     type: Boolean,
     required: false,
-    default: true
+    default: true,
   },
   iframeClass: {
     type: String,
     required: false,
-    default: null
+    default: null,
   },
   cookie: {
     type: Boolean,
     required: false,
-    default: false
+    default: false,
   },
   params: {
     type: String,
     required: false,
-    default: ''
+    default: '',
   },
   playerClass: {
     type: String,
     required: false,
-    default: 'lty-playbtn'
+    default: 'lty-playbtn',
   },
   playlist: {
     type: Boolean,
     required: false,
-    default: false
+    default: false,
   },
   playlistCoverId: {
     type: String,
     required: false,
-    default: ''
+    default: '',
   },
   poster: {
     type: String as PropType<ImageResolution>,
     required: false,
-    default: 'hqdefault'
+    default: 'hqdefault',
   },
   wrapperClass: {
     type: String,
     required: false,
-    default: 'yt-lite'
+    default: 'yt-lite',
   },
   muted: {
     type: Boolean,
     required: false,
-    default: false
+    default: false,
   },
   thumbnail: {
     type: String,
     required: false,
-    default: null
+    default: null,
   },
   webp: {
     type: Boolean,
     required: false,
-    default: false
+    default: false,
   },
   rel: {
     type: String as PropType<'prefetch' | 'preload'>,
     required: false,
-    default: 'preload'
+    default: 'preload',
   },
   aspectHeight: {
     type: Number,
     required: false,
-    default: 9
+    default: 9,
   },
   aspectWidth: {
     type: Number,
     required: false,
-    default: 16
-  }
+    default: 16,
+  },
 })
 
 // const preconnected = ref(false)
@@ -131,13 +117,13 @@ const vi = computed(() => (props.webp ? 'vi_webp' : 'vi'))
 const videoPlaylistCoverId = computed(() =>
   typeof props.playlistCoverId === 'string'
     ? encodeURIComponent(props.playlistCoverId)
-    : null
+    : null,
 )
 
 const posterUrl = computed(() => {
   return (
-    props.thumbnail ||
-    (!props.playlist
+    props.thumbnail
+    || (!props.playlist
       ? `https://i.ytimg.com/${vi.value}/${videoId.value}/${props.poster}.${format.value}`
       : `https://i.ytimg.com/${vi.value}/${videoPlaylistCoverId.value}/${props.poster}.${format.value}`)
   )
@@ -146,17 +132,18 @@ const posterUrl = computed(() => {
 const ytUrl = computed(() =>
   props.cookie
     ? 'https://www.youtube.com'
-    : 'https://www.youtube-nocookie.com'
+    : 'https://www.youtube-nocookie.com',
 )
 
 const iframeSrc = computed(() =>
   !props.playlist
     ? `${ytUrl.value}/embed/${videoId.value}?autoplay=1&enablejsapi=1&state=1${mutedImp.value}${paramsImp.value}`
-    : `${ytUrl.value}/embed/videoseries?autoplay=1&enablejsapi=1&list=${videoId.value}${mutedImp.value}${paramsImp.value}`
+    : `${ytUrl.value}/embed/videoseries?autoplay=1&enablejsapi=1&list=${videoId.value}${mutedImp.value}${paramsImp.value}`,
 )
 
-function addIframe () {
-  if (iframe.value) { return }
+function addIframe() {
+  if (iframe.value)
+    return
   iframe.value = true
 }
 
@@ -165,6 +152,20 @@ function addIframe () {
 //   preconnected.value = true
 // }
 </script>
+
+<template>
+  <div class="lite-youtube-embed" :style="{ backgroundImage: `url(${posterUrl})` }" @click="addIframe">
+    <button v-if="!iframe" class="lite-youtube-embed-button" />
+    <iframe
+      v-if="iframe"
+      ref="iframeElement"
+      :src="iframeSrc"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    />
+  </div>
+</template>
 
 <style lang="scss">
 .lite-youtube-embed {

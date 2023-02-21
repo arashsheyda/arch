@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+
+</script>
+
 <template>
   <svg
     id="Layer_1"
@@ -31,10 +35,6 @@ c33.3-67.9,64.6-131.5,95.8-195.2c1.9-3.8,4.1-7.5,7.7-13.8c34.2,69.9,67.5,137.8,1
     />
   </svg>
 </template>
-
-<script lang="ts" setup>
-
-</script>
 
 <style lang="scss" scoped>
 .st0 {

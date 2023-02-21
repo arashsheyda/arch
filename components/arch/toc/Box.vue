@@ -1,5 +1,26 @@
+<script lang="ts" setup>
+defineProps({
+  name: {
+    type: String,
+    required: true,
+  },
+  icon: {
+    type: String,
+    required: false,
+    default: null,
+  },
+  iconClass: {
+    type: String,
+    required: false,
+    default: null,
+  },
+})
+
+const minimized = ref<boolean>(false)
+</script>
+
 <template>
-  <div class="box" :class="{ 'minimized': minimized }">
+  <div class="box" :class="{ minimized }">
     <div class="header">
       <span>
         <Icon v-if="icon" :name="icon" :class="iconClass" />
@@ -16,27 +37,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-const minimized = ref<boolean>(false)
-
-defineProps({
-  name: {
-    type: String,
-    required: true
-  },
-  icon: {
-    type: String,
-    required: false,
-    default: null
-  },
-  iconClass: {
-    type: String,
-    required: false,
-    default: null
-  }
-})
-</script>
 
 <style lang="scss">
 .box {

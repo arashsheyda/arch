@@ -1,3 +1,36 @@
+<script lang="ts" setup>
+import { onClickOutside } from '@vueuse/core'
+
+defineProps({
+  title: {
+    type: String,
+    required: true,
+  },
+  favicon: {
+    type: String,
+    default: null,
+    required: false,
+  },
+  opened: {
+    type: Boolean,
+    default: false,
+    required: false,
+  },
+})
+
+const emit = defineEmits(['close'])
+
+const close = () => {
+  emit('close')
+}
+
+const modal = ref<HTMLElement>()
+
+onClickOutside(modal, () => {
+  close()
+})
+</script>
+
 <template>
   <Teleport to="body">
     <transition name="fade" mode="out-in">
@@ -26,39 +59,6 @@
     </transition>
   </Teleport>
 </template>
-
-<script lang="ts" setup>
-import { onClickOutside } from '@vueuse/core'
-
-const modal = ref<HTMLElement>()
-
-onClickOutside(modal, () => {
-  close()
-})
-
-defineProps({
-  title: {
-    type: String,
-    required: true
-  },
-  favicon: {
-    type: String,
-    default: null,
-    required: false
-  },
-  opened: {
-    type: Boolean,
-    default: false,
-    required: false
-  }
-})
-
-const emit = defineEmits(['close'])
-
-const close = () => {
-  emit('close')
-}
-</script>
 
 <style lang="scss">
 body {

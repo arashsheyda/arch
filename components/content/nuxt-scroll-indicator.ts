@@ -6,31 +6,31 @@ export default defineComponent({
   props: {
     height: {
       type: Number,
-      default: 3
+      default: 3,
     },
     color: {
       type: String,
-      default: 'linear-gradient(to right, #00dc82 0%,#34cdfe 50%,#0047e1 100%)'
+      default: 'linear-gradient(to right, #00dc82 0%,#34cdfe 50%,#0047e1 100%)',
     },
     background: {
       type: String,
-      default: 'transparent'
+      default: 'transparent',
     },
     shadow: {
       type: String,
-      default: 'none'
+      default: 'none',
     },
     borderRadius: {
       type: Number,
-      default: 0
+      default: 0,
     },
     elementId: {
       type: String,
       required: false,
-      default: undefined
-    }
+      default: undefined,
+    },
   },
-  setup (props, { slots }) {
+  setup(props, { slots }) {
     const indicator = useScrollIndicator(props.elementId)
 
     const nuxtApp = useNuxtApp()
@@ -50,8 +50,8 @@ export default defineComponent({
             top: 0,
             pointerEvents: 'none',
             height: `${props.height}px`,
-            background: props.background
-          }
+            background: props.background,
+          },
         },
         [
           h(
@@ -63,35 +63,35 @@ export default defineComponent({
                 background: props.color,
                 boxShadow: props.shadow,
                 borderRadius: `0 ${props.borderRadius}px ${props.borderRadius}px 0`,
-                width: indicator.width.value + '%'
-              }
+                width: `${indicator.width.value}%`,
+              },
             },
-            slots
-          )
-        ]
+            slots,
+          ),
+        ],
       )
-  }
+  },
 })
 
-function useScrollIndicator (element?: string) {
+function useScrollIndicator(element?: string) {
   const width = ref<number>(0)
   const content = ref<number>(0)
 
-  function onScroll () {
+  function onScroll() {
     const { documentElement, body } = document
-    const windowScroll =
-      documentElement.scrollTop - content.value || body.scrollTop
-    const height =
-      documentElement.scrollHeight -
-      (documentElement.clientHeight + content.value)
-    if (windowScroll > 0) {
+    const windowScroll
+      = documentElement.scrollTop - content.value || body.scrollTop
+    const height
+      = documentElement.scrollHeight
+      - (documentElement.clientHeight + content.value)
+    if (windowScroll > 0)
       width.value = (windowScroll / height) * 100
-    } else {
+
+    else
       width.value = 0
-    }
   }
 
-  function init () {
+  function init() {
     if (element !== undefined) {
       const elementTarget = document.getElementById(element)
       const TargetTop = elementTarget?.offsetTop || 0
@@ -102,13 +102,13 @@ function useScrollIndicator (element?: string) {
     window.addEventListener('scroll', onScroll)
   }
 
-  function clear () {
+  function clear() {
     window.removeEventListener('scroll', onScroll)
   }
 
   return {
     width,
     init,
-    clear
+    clear,
   }
 }

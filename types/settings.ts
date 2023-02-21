@@ -5,7 +5,7 @@ export type FontFamily = 'Poppins' | 'sans-serif' | 'Courier' | 'monospace'
 export interface Settings {
   sidebar: {
     minimized: boolean
-  },
+  }
   font: {
     size: FontSize
     color: FontColor

@@ -1,3 +1,8 @@
+<script lang="ts" setup>
+const arch = useArch()
+const { minimized } = useSidebar()
+</script>
+
 <template>
   <div class="row">
     <ArchSidebar :sticky="true" :minimizer="true">
@@ -26,11 +31,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-const arch = useArch()
-const { minimized } = useSidebar()
-</script>
 
 <style lang="scss">
 

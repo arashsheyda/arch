@@ -11,6 +11,6 @@ export const useSidebar = () => {
 
   return {
     minimized,
-    minimize
+    minimize,
   }
 }

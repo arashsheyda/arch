@@ -1,3 +1,26 @@
+<script lang="ts" setup>
+import type { FontColor, FontFamily, FontSize } from '../../../types/settings'
+
+const settings = useSettings()
+
+const sizes = (new Array(18)).fill(0).map((_x, i) => `${10 + i}px`) as FontSize[]
+const colors = ['var(--color-text)', 'var(--color-primary)', 'var(--color-secondary)'] as FontColor[]
+const families = ['Poppins', 'sans-serif', 'Courier', 'monospace'] as FontFamily[]
+
+const setFontSize = (e: Event) => {
+  if (e.target && 'valueAsNumber' in e.target)
+    settings.value.font.size = sizes[e.target.valueAsNumber as number]
+}
+
+const setFontColor = (color: FontColor) => {
+  settings.value.font.color = color
+}
+
+const setFontFamily = (family: FontFamily) => {
+  settings.value.font.family = family
+}
+</script>
+
 <template>
   <ul>
     <li>
@@ -18,7 +41,7 @@
     </li>
     <li>
       <div class="color-box">
-        <div v-for="color in colors" :key="color" :style="{background: color}" @click="setFontColor(color)" />
+        <div v-for="color in colors" :key="color" :style="{ background: color }" @click="setFontColor(color)" />
       </div>
     </li>
     <li>
@@ -30,28 +53,6 @@
     </li>
   </ul>
 </template>
-
-<script lang="ts" setup>
-import { FontColor, FontSize, FontFamily } from '../../../types/settings'
-
-const settings = useSettings()
-
-const sizes = (new Array(18)).fill(0).map((_x, i) => `${10 + i}px`) as FontSize[]
-const colors = ['var(--color-text)', 'var(--color-primary)', 'var(--color-secondary)'] as FontColor[]
-const families = ['Poppins', 'sans-serif', 'Courier', 'monospace'] as FontFamily[]
-
-const setFontSize = (e: Event) => {
-  if (e.target && 'valueAsNumber' in e.target) { settings.value.font.size = sizes[e.target.valueAsNumber as number] }
-}
-
-const setFontColor = (color: FontColor) => {
-  settings.value.font.color = color
-}
-
-const setFontFamily = (family: FontFamily) => {
-  settings.value.font.family = family
-}
-</script>
 
 <style lang="scss">
 .color-box {

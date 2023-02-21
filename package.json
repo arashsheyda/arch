@@ -1,18 +1,17 @@
 {
-  "name": "arch-nuxt",
-  "version": "0.0.0",
+  "name": "nuxt-arch",
   "type": "module",
-  "license": "MIT",
-  "main": "./nuxt.config.ts",
+  "version": "0.0.0",
+  "description": "Arch is a Nuxt 3 template for creating your personal website less than a minute.",
   "author": {
     "name": "Arash Sheyda",
     "email": "arashi.sheyda@gmail.com"
   },
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/arashsheyda/arch.git"
   },
-  "description": "Arch is a Nuxt 3 template for creating your personal website less than a minute.",
   "keywords": [
     "vue",
     "nuxt",
@@ -22,6 +21,7 @@
     "nuxt-template",
     "personal-website"
   ],
+  "main": "./nuxt.config.ts",
   "files": [
     "app",
     "assets",
@@ -46,23 +46,29 @@
     "release": "release-it"
   },
   "dependencies": {
-    "@nuxt/content": "^2.3.0",
-    "@nuxt/devtools": "^0.1.0",
+    "@nuxt/content": "^2.4.3",
     "@nuxt/image-edge": "^1.0.0-27919678.2f5b64b",
     "@nuxtjs/color-mode": "^3.2.0",
     "@vueuse/nuxt": "^9.11.0",
     "medium-zoom": "^1.0.8",
-    "nuxt-icon": "^0.2.6",
-    "pinceau": "^0.10.11",
+    "nuxt-icon": "^0.3.2",
+    "pinceau": "^0.15.4",
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0",
     "vue3-carousel": "^0.2.9"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "@antfu/eslint-config": "^0.35.2",
+    "@types/prettier": "^2.7.2",
     "eslint": "^8.28.0",
-    "nuxt": "^3.0.0",
+    "lint-staged": "^13.1.2",
+    "nuxt": "^3.2.2",
+    "prettier": "^2.8.4",
     "release-it": "^15.6.0",
-    "typescript": "^4.9.3"
+    "typescript": "^4.9.3",
+    "vue": "^3.2.47"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }

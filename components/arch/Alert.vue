@@ -1,21 +1,21 @@
-<template>
-  <div class="alert" :class="[`alert-${type}`]" role="alert">
-    <slot />
-  </div>
-</template>
-
 <script lang="ts" setup>
-import { PropType } from 'vue'
-import { Variants } from '../../types/variants'
+import type { PropType } from 'vue'
+import type { Variants } from '../../types/variants'
 
 defineProps({
   type: {
     type: String as PropType<Variants>,
     required: false,
-    default: 'primary'
-  }
+    default: 'primary',
+  },
 })
 </script>
+
+<template>
+  <div class="alert" :class="[`alert-${type}`]" role="alert">
+    <slot />
+  </div>
+</template>
 
 <style lang="scss">
 .alert {

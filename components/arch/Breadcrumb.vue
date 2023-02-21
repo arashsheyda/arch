@@ -1,39 +1,39 @@
+<script lang="ts" setup>
+import type { PropType } from 'vue'
+import type { Headlines } from '../../types/headlines'
+
+defineProps({
+  title: {
+    type: String,
+    required: true,
+  },
+  icon: {
+    type: String,
+    default: null,
+    required: false,
+  },
+  h: {
+    type: Number as PropType<Headlines>,
+    default: 1,
+    required: false,
+  },
+  underline: {
+    type: Boolean,
+    default: true,
+    required: false,
+  },
+})
+</script>
+
 <template>
   <div class="breadcrumb">
-    <component :is="`h${h}`" class="title" :class="[{'title__separate': underline}, `title--h${h}`]">
+    <component :is="`h${h}`" class="title" :class="[{ title__separate: underline }, `title--h${h}`]">
       {{ title }}
       <Icon v-if="icon" :name="icon" />
     </component>
     <slot />
   </div>
 </template>
-
-<script lang="ts" setup>
-import { PropType } from 'vue'
-import { Headlines } from '../../types/headlines'
-
-defineProps({
-  title: {
-    type: String,
-    required: true
-  },
-  icon: {
-    type: String,
-    default: null,
-    required: false
-  },
-  h: {
-    type: Number as PropType<Headlines>,
-    default: 1,
-    required: false
-  },
-  underline: {
-    type: Boolean,
-    default: true,
-    required: false
-  }
-})
-</script>
 
 <style lang="scss">
 .breadcrumb {

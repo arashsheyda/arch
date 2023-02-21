@@ -1,5 +1,65 @@
+<script lang="ts" setup>
+import type { PropType } from 'vue'
+
+interface PortfolioLink {
+  title: string
+  icon: string
+  url: string
+}
+
+defineProps({
+  name: {
+    type: String,
+    required: true,
+  },
+  favicon: {
+    type: String,
+    default: null,
+    required: false,
+  },
+  color: {
+    type: String,
+    default: 'var(--color-text)',
+    required: false,
+  },
+  images: {
+    type: [String, Array],
+    required: true,
+  },
+  links: {
+    type: Array as PropType<PortfolioLink[]>,
+    required: false,
+    default: null,
+  },
+  noBorderRadius: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
+  category: {
+    type: String,
+    required: false,
+    default: null,
+  },
+  description: {
+    type: String,
+    required: false,
+    default: null,
+  },
+})
+
+const openModal = ref(false)
+
+watch(openModal, (value) => {
+  if (value)
+    document.body.classList.add('modal-open')
+  else
+    document.body.classList.remove('modal-open')
+})
+</script>
+
 <template>
-  <figure class="col-lg-6 col-md-6 col-sm-6 col-6" :style="{'--portfolio-color': color}">
+  <figure class="col-lg-6 col-md-6 col-sm-6 col-6" :style="{ '--portfolio-color': color }">
     <div class="portfolio-item hoverable" :class="{ 'no-border-radius': noBorderRadius }" @click="openModal = !openModal">
       <ProseImg :src="Array.isArray(images) ? images[0] : images" :alt="name" />
       <div class="portfolio-overly" />
@@ -7,7 +67,7 @@
     <ArchModal :title="name" :favicon="favicon" :opened="openModal" @close="openModal = false">
       <template #body>
         <ArchSlider :name="name" :images="images" />
-        <div class="portfolio-content" :style="{'--portfolio-color': color}">
+        <div class="portfolio-content" :style="{ '--portfolio-color': color }">
           <ul v-if="links" class="links">
             <li v-for="link in links" :key="link.title">
               <a :href="link.url" target="_blank">
@@ -27,67 +87,6 @@
     </ArchModal>
   </figure>
 </template>
-
-<script lang="ts" setup>
-import { PropType } from 'vue'
-
-interface PortfolioLink {
-  title: string
-  icon: string
-  url: string
-}
-
-const openModal = ref(false)
-
-watch(openModal, (value) => {
-  if (value) {
-    document.body.classList.add('modal-open')
-  } else {
-    document.body.classList.remove('modal-open')
-  }
-})
-
-defineProps({
-  name: {
-    type: String,
-    required: true
-  },
-  favicon: {
-    type: String,
-    default: null,
-    required: false
-  },
-  color: {
-    type: String,
-    default: 'var(--color-text)',
-    required: false
-  },
-  images: {
-    type: [String, Array],
-    required: true
-  },
-  links: {
-    type: Array as PropType<PortfolioLink[]>,
-    required: false,
-    default: null
-  },
-  noBorderRadius: {
-    type: Boolean,
-    required: false,
-    default: false
-  },
-  category: {
-    type: String,
-    required: false,
-    default: null
-  },
-  description: {
-    type: String,
-    required: false,
-    default: null
-  }
-})
-</script>
 
 <style lang="scss">
 .portfolio-item {

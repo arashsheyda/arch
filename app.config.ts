@@ -15,20 +15,20 @@ export default defineAppConfig({
       email: 'info@arashshyeda.com',
       phone: '',
       company: '',
-      location: ''
+      location: '',
     },
     layout: {},
     banner: {
-      image: 'https://raw.githubusercontent.com/arashsheyda/arch/main/.playground/public/images/banner.jpg'
+      image: 'https://raw.githubusercontent.com/arashsheyda/arch/main/.playground/public/images/banner.jpg',
     },
     navigation: {
-      exclude: []
+      exclude: [],
     },
     sidebar: {},
     footer: {
       copyright: 'Arash Sheyda',
-      links: []
+      links: [],
     },
-    socials: []
-  }
+    socials: [],
+  },
 })
