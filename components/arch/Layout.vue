@@ -24,6 +24,9 @@ function getMeta(name: string) {
   }
   return ''
 }
+const baseUrl = computed(() => {
+  return arch.value.baseUrl || ''
+})
 
 const metas = computed(() => {
   if (page.value) {
@@ -38,7 +41,7 @@ const metas = computed(() => {
       },
       {
         name: 'og:url',
-        content: arch.value.url + page.value._path,
+        content: baseUrl.value + page.value._path,
       },
       {
         name: 'og:locale',
@@ -62,7 +65,7 @@ const metas = computed(() => {
       },
       {
         name: 'og:image',
-        content: arch.value.url + (page.value.image || arch.value.image),
+        content: baseUrl.value + (page.value.image || arch.value.image),
       },
       {
         name: 'og:image:alt',
@@ -86,11 +89,11 @@ const metas = computed(() => {
       },
       {
         name: 'twitter:url',
-        content: arch.value.url + page.value._path,
+        content: baseUrl.value + page.value._path,
       },
       {
         name: 'twitter:image',
-        content: arch.value.url + (page.value.image || arch.value.image),
+        content: baseUrl.value + (page.value.image || arch.value.image),
       },
       {
         name: 'twitter:image:alt',

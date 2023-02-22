@@ -1,6 +1,7 @@
 export default defineAppConfig({
   arch: {
     locale: 'en',
+    baseUrl: '',
     title: 'Arch',
     image: 'https://raw.githubusercontent.com/arashsheyda/arch/main/.playground/public/cover.jpg',
     description: 'Nuxt Arch Template',
