@@ -28,6 +28,14 @@ const baseUrl = computed(() => {
   return arch.value.baseUrl || ''
 })
 
+const trimImage = (image: string) => {
+  const provider = `/${image.split('/')[1]}`
+  if (provider === '/')
+    return image
+  const src = provider === '/public' ? image.replace(provider, '') : image
+  return baseUrl.value + src
+}
+
 const metas = computed(() => {
   if (page.value) {
     return [
@@ -65,7 +73,7 @@ const metas = computed(() => {
       },
       {
         name: 'og:image',
-        content: baseUrl.value + (page.value.image || arch.value.image),
+        content: trimImage(page.value.image || arch.value.image),
       },
       {
         name: 'og:image:alt',
@@ -93,7 +101,7 @@ const metas = computed(() => {
       },
       {
         name: 'twitter:image',
-        content: baseUrl.value + (page.value.image || arch.value.image),
+        content: trimImage(page.value.image || arch.value.image),
       },
       {
         name: 'twitter:image:alt',
