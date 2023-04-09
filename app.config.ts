@@ -13,14 +13,11 @@ export default defineAppConfig({
       image: 'https://raw.githubusercontent.com/arashsheyda/arch/main/.playground/public/images/banner.jpg',
     },
     aside: {
-      name: 'Arash Sheyda',
+      name: 'John Doe',
       job: 'Full Stack Developer',
       image: 'https://raw.githubusercontent.com/arashsheyda/arch/main/.playground/public/images/logo.jpg',
       imageHover: 'https://raw.githubusercontent.com/arashsheyda/arch/main/.playground/public/images/logo-hover.jpg',
-      email: '',
-      phone: '',
-      company: '',
-      location: '',
+      email: 'arashi.sheyda@gmail.com',
     },
     footer: {
       copyright: 'Arash Sheyda',
