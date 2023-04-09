@@ -1,0 +1,11 @@
+export type Variants =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'danger'
+  | 'warning'
+  | 'info'
+  | 'white'
+  | 'black'
+  | 'link'
+  | 'gradient'
