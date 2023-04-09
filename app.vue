@@ -1,7 +1,23 @@
+<script lang="ts" setup>
+const arch = useArch()
+
+useSeoMeta({
+  titleTemplate: `%s | ${arch.value.general!.title}`,
+  description: arch.value.general!.description,
+  keywords: arch.value.general!.keywords,
+  ogImage: arch.value.general!.image,
+  ogImageAlt: arch.value.general!.title,
+  twitterImage: arch.value.general!.image,
+  twitterImageAlt: arch.value.general!.title,
+
+  themeColor: arch.value.general!.themeColor,
+})
+</script>
+
 <template>
-  <Html lang="en_US">
+  <Html>
     <Head>
-      <SeoKit />
+      <SeoKit :language="arch.general!.locale" />
     </Head>
     <Body>
       <ArchLayout>
