@@ -3,7 +3,7 @@ const arch = useArch()
 </script>
 
 <template>
-  <div class="grid grid-cols-4 text-center gap-y-5">
+  <div class="grid grid-cols-4 text-center gap-y-5 dark:text-white">
     <NuxtLink
       v-for="item in arch.socials"
       :key="item.url"

@@ -62,7 +62,7 @@ onMounted(() => {
     <OgImageStatic :component="page.island || 'ArchOgImagePost'" :title="page.title" :image="page.image" v-bind="page.ogImage || {}" />
     <ArchBox :size="9" class="pb-20 p-4 -mt-32 md:mt-0 mb-16 md:mb-0">
       <ArchBreadcrumb />
-      <div class="article-content mb-4">
+      <div class="article-content mb-4 dark:text-white">
         <header class="header-post">
           <h1>{{ page.title }}</h1>
           <div v-if="page.description" class="caption-post">

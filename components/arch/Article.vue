@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="group max-w-sm bg-white rounded-lg shadow-lg transition-all">
+  <div class="group max-w-sm bg-white rounded-lg shadow-lg transition-all dark:bg-darker">
     <NuxtLink :to="item._path">
       <ProseImg :rounded="false" class="rounded-t-lg" :src="item.image" :alt="item.title" />
     </NuxtLink>

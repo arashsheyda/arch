@@ -111,8 +111,8 @@ const gridSize = {
 </script>
 
 <template>
-  <div class="relative px-5" :class="{ 'py-5': padding }">
-    <component :is="`h${heading}`" :class="[headingSize, { 'section-header': line }, bold ? 'font-bold' : 'font-medium', { 'ml-8 ': collapsable }]" class="relative mb-4 text-slate-700">
+  <div class="relative px-5 dark:text-white" :class="{ 'py-5': padding }">
+    <component :is="`h${heading}`" :class="[headingSize, { 'section-header': line }, bold ? 'font-bold' : 'font-medium', { 'ml-8 ': collapsable }]" class="relative mb-4 text-slate-700 dark:text-white">
       <Icon v-if="icon && iconRight" :name="icon" class="h-8 w-8 ml-2 mb-1 mr-2" :class="`text-${iconColor}`" />
       <span>
         {{ title }}
@@ -134,7 +134,7 @@ const gridSize = {
       <Icon v-else name="uil:compact-disc" />
     </button>
 
-    <button v-if="listable" aria-label="List" class="absolute top-5 right-5 bg-gray-200 p-2 rounded-lg" @click="list = !list">
+    <button v-if="listable" aria-label="List" class="absolute top-5 right-5 bg-gray-200 dark:bg-darker p-2 rounded-lg" @click="list = !list">
       <Icon v-if="list" name="tabler:layout-grid" />
       <Icon v-else name="tabler:list" />
     </button>

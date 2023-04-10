@@ -14,11 +14,11 @@ const { page } = useContent()
             <ProseImg :width="minimize ? 50 : 117" height="117" class="transition-all" :src="arch.aside.image" :alt="arch.aside.name" />
           </figure>
           <div :class="{ 'hidden ': minimize }" class="pt-2">
-            <h3 class="text-2xl font-bold">
+            <h3 class="text-2xl font-bold dark:text-white">
               Arash Sheyda
             </h3>
             <div class="flex justify-center mt-3">
-              <p class="w-2/3 py-3 px-0 rounded-lg text-sm bg-gray-100">
+              <p class="w-2/3 py-3 px-0 rounded-lg text-sm bg-gray-100 dark:bg-darker dark:text-white">
                 Full Stack Developer
               </p>
             </div>

@@ -1,5 +1,5 @@
 <template>
-  <footer class="absolute w-full bottom-0 left-0 right-0">
+  <footer class="absolute w-full bottom-0 left-0 right-0 dark:text-white">
     <div class="flex justify-between p-4 mx-4 border-t border-t-gray-200">
       <div>
         <NuxtLink to="https://nuxt.com/" title="Powered by Nuxt - Arch" class="powered">

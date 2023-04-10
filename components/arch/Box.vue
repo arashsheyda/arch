@@ -96,7 +96,7 @@ const calculateShadow = computed(() => {
 </script>
 
 <template>
-  <component :is="component" :class="[colspan.md[size], calculateRounded, calculateBg, calculateShadow]" class="relative col-span-12">
+  <component :is="component" :class="[colspan.md[size], calculateRounded, calculateBg, calculateShadow]" class="relative col-span-12 dark:bg-dark">
     <template v-if="title">
       <div :class="{ 'mb-2': !hide }" class="flex text-slate-500">
         <Icon :name="icon" class="mr-2" />

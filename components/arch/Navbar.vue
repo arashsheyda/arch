@@ -52,13 +52,13 @@ onUnmounted(() => {
     id="arch-nav"
     ref="archNav"
     :class="{ 'md:rounded-lg md:bg-opacity-100 md:mx-20': !fixed }"
-    class="md:sticky md:top-0 fixed bottom-0 right-0 left-0 -mt-7 backdrop-blur bg-opacity-50 z-999 flex justify-around bg-white dark:bg-slate-500 shadow-lg transition-all"
+    class="md:sticky md:top-0 fixed bottom-0 right-0 left-0 -mt-7 backdrop-blur bg-opacity-50 z-999 flex justify-around bg-white dark:bg-dark shadow-lg transition-all"
   >
     <NuxtLink
       v-for="item in tree"
       :key="item._path"
       :to="item._path"
-      class="hover:bg-gray-100 hover:bg-opacity-50 relative text-center after:bg-gray-700 nav-item flex-1 dark:text-white block md:px-4 py-4 transition-all"
+      class="hover:bg-gray-100 hover:dark:bg-neutral-800 hover:dark:text-white hover:bg-opacity-50 relative text-center after:bg-gray-700 dark:after:bg-gray-300 nav-item flex-1 dark:text-white block md:px-4 py-4 transition-all"
       :class="{ active: item.children && $route.path.includes(item._path) }"
     >
       <Icon v-if="item.icon" :name="item.icon" />

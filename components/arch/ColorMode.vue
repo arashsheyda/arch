@@ -17,7 +17,7 @@ const toggleTheme = () => {
     variant="white"
     shadow="lg"
     :class="`color-mode-${colorMode.preference}`"
-    class="fixed left-4 md:bottom-6 bottom-16"
+    class="fixed left-4 md:bottom-6 bottom-16 dark:bg-dark"
     @click="toggleTheme"
   >
     <Icon v-if="colorMode.preference === 'dark'" name="line-md:moon-alt-loop" />
