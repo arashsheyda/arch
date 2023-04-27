@@ -13,7 +13,7 @@ const showContent = ref(false)
 const showSettings = ref(false)
 const showNavigation = ref(false)
 
-const toggleShow = (name?: string) => {
+function toggleShow(name?: string) {
   if (name === 'content') {
     show.value = true
     showContent.value = true
@@ -73,13 +73,13 @@ onMounted(() => {
           </div>
         </header>
 
-        <div :class="{ 'shadow-lg': show }" class="md:hidden sticky top-0 bg-white bg-opacity-50 backdrop-blur p-4 rounded-lg z-10 my-4 border">
+        <div :class="{ 'shadow-lg': show }" class="md:hidden sticky top-0 bg-white dark:bg-dark bg-opacity-50 backdrop-blur p-4 rounded-lg z-10 my-4 border dark:border-gray-500">
           <div class="flex justify-between">
             <button :class="{ 'text-primary': showContent }" @click="toggleShow('content')">
               <Icon name="uil:list-ui-alt" />
               Content
             </button>
-            <button :class="{ 'text-primary': showSettings }" class="border-gray-300 border-r border-l px-3" @click="toggleShow('settings')">
+            <button :class="{ 'text-primary': showSettings }" class="border-gray-300 dark:border-gray-500 border-r border-l px-3" @click="toggleShow('settings')">
               <Icon name="uil:setting" />
               Settings
             </button>

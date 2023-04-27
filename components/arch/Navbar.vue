@@ -16,11 +16,11 @@ const tree = computed(() => {
   })
 })
 
-const handleResize = () => {
+function handleResize() {
   width.value = window.innerWidth
 }
 
-const handleNav = () => {
+function handleNav() {
   if (width.value > 787) {
     if (window.scrollY > navPosition.value)
       fixed.value = true

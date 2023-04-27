@@ -3,7 +3,7 @@ const gradient = 'linear-gradient(to right, var(--arch-color-secondary), var(--a
 </script>
 
 <template>
-  <div class="arch-layout bg-slate-100 dark:bg-darker coffee:bg-cyan-200">
+  <div class="arch-layout bg-slate-100 dark:bg-darker coffee:bg-orange-200">
     <NuxtLoadingIndicator :color="gradient" />
     <NuxtScrollIndicator :color="gradient" element-id="arch-nav" :border-radius="7" />
     <main class="pt-64 pb-4">

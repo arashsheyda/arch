@@ -12,6 +12,18 @@
     "type": "git",
     "url": "https://github.com/arashsheyda/arch.git"
   },
+  "keywords": [
+    "cv",
+    "vue",
+    "nuxt",
+    "nuxt3",
+    "tailwind",
+    "nuxt-arch",
+    "nuxt-themes",
+    "nuxt-content",
+    "nuxt-template",
+    "personal-website"
+  ],
   "main": "./nuxt.config.ts",
   "files": [
     "app",
@@ -59,17 +71,5 @@
   },
   "lint-staged": {
     "*": "eslint --fix"
-  },
-  "keywords": [
-    "cv",
-    "vue",
-    "nuxt",
-    "nuxt3",
-    "tailwind",
-    "nuxt-arch",
-    "nuxt-themes",
-    "nuxt-content",
-    "nuxt-template",
-    "personal-website"
-  ]
+  }
 }

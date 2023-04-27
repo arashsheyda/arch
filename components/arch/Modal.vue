@@ -29,7 +29,7 @@ const props = defineProps({
 
 const emit = defineEmits(['close'])
 
-const close = () => {
+function close() {
   emit('close')
 }
 

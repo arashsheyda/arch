@@ -1,6 +1,6 @@
 import zoom from 'medium-zoom'
 
-const initZoom = () => {
+function initZoom() {
   zoom('img.zoomable:not(.medium-zoom-image)', {
     margin: 50,
   })

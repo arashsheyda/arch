@@ -9,7 +9,7 @@ defineProps({
 
 <template>
   <ul class="ml-2">
-    <li v-for="toc in links" :key="toc.id" class="hover:text-primary my-1">
+    <li v-for="toc in links" :key="toc.id" class="dark:text-white hover:text-primary my-1">
       <NuxtLink :class="[`toc-item h-${toc.depth}`, { active: $route.hash === `#${toc.id}` }]" :to="`#${toc.id}`">
         {{ toc.text }}
       </NuxtLink>

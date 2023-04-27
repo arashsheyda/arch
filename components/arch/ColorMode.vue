@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const colorMode = useColorMode()
 
-const toggleTheme = () => {
+function toggleTheme() {
   const values = ['system', 'light', 'coffee', 'dark']
   const index = values.indexOf(colorMode.preference)
   const next = (index + 1) % values.length

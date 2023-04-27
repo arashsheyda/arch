@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import type { RouterConfig } from '@nuxt/schema'
 
 export default <RouterConfig>{
