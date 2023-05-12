@@ -134,7 +134,7 @@ const gridSize = {
       <Icon v-else name="uil:compact-disc" />
     </button>
 
-    <button v-if="listable" aria-label="List" absolute top-2 right-0 bg-base-dark text-base p2 rounded-lg @click="list = !list">
+    <button v-if="listable" aria-label="List" absolute top-2 right-0 bg-body text-base p2 rounded-lg @click="list = !list">
       <Icon v-if="list" name="tabler:layout-grid" />
       <Icon v-else name="tabler:list" />
     </button>

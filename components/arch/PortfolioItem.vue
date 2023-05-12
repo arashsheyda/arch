@@ -87,7 +87,7 @@ const generateColor = computed(() => {
       <template #body>
         <ArchSlider :name="name" :images="images" />
         <div v-if="$slots.default" relative mx8 mb10 mt--12>
-          <div :style="{ '--arch-portfolio-color': generateColor }" bg-glass rounded-lg shadow-lg px8 py4 mb4>
+          <div :style="{ '--arch-portfolio-color': generateColor }" bg-base rounded-lg shadow-lg px8 py4 mb4>
             <ul v-if="links" flex justify-center gap-5>
               <li v-for="link in links" :key="link.title">
                 <NuxtLink :to="link.url" target="_blank">
@@ -100,10 +100,8 @@ const generateColor = computed(() => {
         </div>
       </template>
       <template #footer>
-        <button @click="openModal = false">
-          <span text-base>
-            Close
-          </span>
+        <button aria-label="Close" button="primary" @click="openModal = false">
+          Close
         </button>
       </template>
     </ArchModal>

@@ -47,7 +47,7 @@ onMounted(() => {
     id="arch-nav"
     ref="archNav"
     :class="{ 'md:rounded-lg md:bg-opacity-100 md:mx-20': !fixed }"
-    class="md:sticky md:top-0 fixed bottom-0 right-0 left-0 -mt-7 backdrop-blur bg-opacity-50 z-999 flex justify-around bg-white dark:bg-dark shadow-xl transition-all"
+    class="font-medium md:sticky md:top-0 fixed bottom-0 right-0 left-0 -mt-7 backdrop-blur bg-opacity-50 z-999 flex justify-around bg-white dark:bg-dark shadow-xl transition-all"
   >
     <NuxtLink
       v-for="item in tree"

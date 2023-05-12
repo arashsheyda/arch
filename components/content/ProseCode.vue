@@ -35,17 +35,17 @@ const { copy, copied } = useClipboard()
 </script>
 
 <template>
-  <div v-if="code" class="code-block group" :class="language" relative bg-base-dark rounded-lg p2 mb4>
+  <div v-if="code" class="code-block group" :class="language" relative bg-body rounded-lg p2 mb4>
     <span v-if="filename" class="filename">
       {{ filename }}
     </span>
     <span v-if="language" :title="language" class="language">
       <Icon :name="icon" rounded-lg />
     </span>
-    <div class="of-auto">
+    <div of-auto class="no-scrollbar">
       <slot />
     </div>
-    <button absolute bottom-2 right-3 bg-base py1 px2 rounded-lg opacity-0 group-hover-opacity-100 transition-all @click="copy(code)">
+    <button aria-label="Copy" absolute bottom-2 right-3 bg-base py1 px2 rounded-lg opacity-0 group-hover-opacity-100 transition-all @click="copy(code)">
       <Icon v-if="copied" name="uil:check" />
       <Icon v-else name="uil:copy" />
     </button>

@@ -4,10 +4,6 @@ const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
 
-  extends: [
-    'nuxt-seo-kit',
-  ],
-
   app: {
     keepalive: true,
   },
@@ -31,11 +27,16 @@ export default defineNuxtConfig({
     },
   ],
 
+  extends: [
+    'nuxt-seo-kit',
+  ],
+
   modules: [
     'nuxt-icon',
     '@vueuse/nuxt',
     '@unocss/nuxt',
     '@nuxt/content',
+    '@nuxt/devtools',
     'nuxt-config-schema',
     '@nuxtjs/color-mode',
   ],

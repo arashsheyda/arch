@@ -7,7 +7,7 @@ export default defineAppConfig({
       description: 'Nuxt Arch Template',
       keywords: 'nuxt arch template, nuxt content',
       favicon: 'https://raw.githubusercontent.com/arashsheyda/arch/main/.playground/public/favicon.ico',
-      themeColor: '#ffffff',
+      themeColor: '#00cfff',
     },
     banner: {
       image: 'https://raw.githubusercontent.com/arashsheyda/arch/main/.playground/public/images/banner.jpg',

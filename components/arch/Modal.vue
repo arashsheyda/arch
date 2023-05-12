@@ -67,22 +67,21 @@ const { height } = useWindowSize()
       <div v-if="opened" fixed inset-0 z-9999>
         <div flex items-end justify-center p4 text-center class="sm:items-center sm:p-0">
           <div ref="modal" :class="calculateSize" relative transform overflow-hidden rounded-lg text-left shadow-xl transition-all sm:my8>
-            <div bg-base overflow-y-auto :style="{ height: `${height - (height / 12)}px` }">
+            <div bg-body overflow-y-auto :style="{ height: `${height - (height / 12)}px` }">
               <div sticky top-0 z-10 bg-glass flex items-center justify-between p4 shadow-lg>
                 <h3 flex text-xl font-semibold text-gray-900 dark:text-white>
                   <ProseImg v-if="favicon" mr2 :width="27" :src="favicon" :alt="title" />
                   {{ title }}
                 </h3>
-                <button label="Close Modal" @click="close">
+                <button aria-label="Close Modal" @click="close">
                   <svg text-base w-5 h-5 aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                   <span sr-only>Close modal</span>
                 </button>
-                <!-- <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 mlauto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal"></button> -->
               </div>
               <div p4 mb8 text-base>
                 <slot name="body" />
               </div>
-              <div absolute bottom-0 w-full bg-glass px4 py3 class="sm:flex sm:flex-row-reverse sm:px6">
+              <div absolute bottom-0 w-full bg-glass px4 py3 border="t base" class="sm:flex sm:flex-row-reverse sm:px6">
                 <slot name="footer" />
               </div>
             </div>

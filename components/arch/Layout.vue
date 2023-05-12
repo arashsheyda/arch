@@ -6,7 +6,7 @@ const { y } = useWindowScroll()
 </script>
 
 <template>
-  <div bg-base-dark class="arch-layout">
+  <div bg-body class="arch-layout">
     <NuxtLoadingIndicator color="" />
     <NuxtScrollIndicator color="" element-id="arch-nav" :border-radius="7" />
     <main pt64 pb4>

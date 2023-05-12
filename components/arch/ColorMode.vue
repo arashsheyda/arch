@@ -11,7 +11,7 @@ function toggleTheme() {
 
 <template>
   <button
-    label="Color Mode"
+    aria-label="Color Mode"
     rounded-full
     bg-white
     shadow-lg

@@ -74,15 +74,15 @@ onMounted(() => {
 
         <div :class="{ 'shadow-lg': show }" md-hidden sticky top-0 bg-base bg-opacity-50 backdrop-blur p4 rounded-lg z-10 my4 border dark:border-gray-500>
           <div flex justify-between>
-            <button :class="{ 'text-primary': showContent }" @click="toggleShow('content')">
+            <button aria-label="Content" :class="{ 'text-primary': showContent }" @click="toggleShow('content')">
               <Icon name="uil:list-ui-alt" />
               Content
             </button>
-            <button :class="{ 'text-primary': showSettings }" class="border-gray-300 dark:border-gray-500 border-r border-l px-3" @click="toggleShow('settings')">
+            <button aria-label="Settings" :class="{ 'text-primary': showSettings }" class="border-gray-300 dark:border-gray-500 border-r border-l px-3" @click="toggleShow('settings')">
               <Icon name="uil:setting" />
               Settings
             </button>
-            <button :class="{ 'text-primary': showNavigation }" @click="toggleShow('navigation')">
+            <button aria-label="Navigation" :class="{ 'text-primary': showNavigation }" @click="toggleShow('navigation')">
               <Icon name="uil:list-ul" />
               Navigation
             </button>
@@ -98,7 +98,7 @@ onMounted(() => {
             <div v-if="showNavigation">
               <ArchPostNavigation :prev="prev" :next="next" />
             </div>
-            <button class="mt4 w-full bg-primary text-white" size="xs" @click="toggleShow()">
+            <button aria-label="Close" class="mt4 w-full bg-primary text-white" size="xs" @click="toggleShow()">
               <Icon name="tabler:x" />
               Close
             </button>
