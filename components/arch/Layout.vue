@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 const arch = useArch()
 const minimize = ref(false)
-const { page } = useContent()
+let { page } = useContent()
+page = page || {}
 const { y } = useWindowScroll()
 </script>
 
@@ -16,7 +17,7 @@ const { y } = useWindowScroll()
       <ArchNavbar />
       <div container m-auto px10 h-full min-h-screen>
         <div id="arch-content" relative mt8 text-white>
-          <template v-if="page.layout === 'default'">
+          <template v-if="page?.layout === 'default'">
             <div grid="~ cols-12" gap-5>
               <ArchSidebar md-col-span-3 mt--32>
                 <ArchBox p5 :minimize="minimize" @minimize="minimize = !minimize">
