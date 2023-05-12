@@ -1,18 +1,31 @@
 {
   "name": "nuxt-arch",
-  "version": "0.1.0-beta",
-  "license": "MIT",
   "type": "module",
-  "main": "./nuxt.config.ts",
+  "version": "0.1.0-beta",
   "description": "Arch is a Nuxt 3 template for creating your personal website less than a minute.",
   "author": {
     "name": "Arash Sheyda",
     "email": "arashi.sheyda@gmail.com"
   },
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/arashsheyda/arch.git"
   },
+  "keywords": [
+    "cv",
+    "vue",
+    "nuxt",
+    "nuxt3",
+    "unocss",
+    "tailwind",
+    "nuxt-arch",
+    "nuxt-themes",
+    "nuxt-content",
+    "nuxt-template",
+    "personal-website"
+  ],
+  "main": "./nuxt.config.ts",
   "files": [
     "app",
     "components",
@@ -26,19 +39,6 @@
     "nuxt.config.ts",
     "nuxt.schema.ts",
     "uno.config.ts"
-  ],
-  "keywords": [
-    "cv",
-    "vue",
-    "nuxt",
-    "nuxt3",
-    "unocss",
-    "tailwind",
-    "nuxt-arch",
-    "nuxt-themes",
-    "nuxt-content",
-    "nuxt-template",
-    "personal-website"
   ],
   "scripts": {
     "prepare": "nuxi prepare",
