@@ -11,6 +11,7 @@ export default defineAppConfig({
     },
     banner: {
       image: 'https://raw.githubusercontent.com/arashsheyda/arch/main/.playground/public/images/banner.jpg',
+      alt: 'Arch Banner',
     },
     aside: {
       name: 'John Doe',

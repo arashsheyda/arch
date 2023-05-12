@@ -70,6 +70,11 @@ export default defineNuxtSchema({
               default: 'https://raw.githubusercontent.com/arashsheyda/arch/main/.playground/public/images/banner.jpg',
               description: 'Image of the banner',
             },
+            alt: {
+              type: 'string',
+              default: 'Arch Banner',
+              description: 'Description of the banner',
+            },
           },
         },
       },

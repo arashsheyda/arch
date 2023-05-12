@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+const arch = useArch()
+</script>
+
 <template>
-  <ProseImg class="w-full h-full object-cover" src="/assets/images/banner.jpg" alt="Banner" :rounded="false" :lazy="false" />
+  <ProseImg class="w-full h-full object-cover" :src="arch.banner!.image" :alt="arch.banner?.alt" :rounded="false" :lazy="false" />
 </template>
