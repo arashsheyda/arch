@@ -15,7 +15,7 @@ const { y } = useWindowScroll()
         <ArchBanner />
       </div>
       <ArchNavbar />
-      <div container m-auto px10 h-full min-h-screen>
+      <div container m-auto px10>
         <div id="arch-content" relative mt8 text-white>
           <template v-if="page?.layout === 'default'">
             <div grid="~ cols-12" gap-5>
@@ -54,7 +54,9 @@ const { y } = useWindowScroll()
               </ArchBox>
             </div>
           </template>
-          <slot v-else />
+          <div v-else min-h-screen>
+            <slot />
+          </div>
         </div>
       </div>
     </main>
