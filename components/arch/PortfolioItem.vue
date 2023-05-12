@@ -79,16 +79,16 @@ const generateColor = computed(() => {
 
 <template>
   <figure>
-    <button class="relative group" @click="openModal = !openModal">
-      <img class="relative z-10 rounded-lg group-hover:scale-90 transition-all" :src="getImg" :alt="name">
-      <div class="absolute inset-0 mx-4 my-2 rounded-lg" :style="{ background: generateColor }" />
+    <button relative class="group" @click="openModal = !openModal">
+      <img relative z-10 rounded-lg transition-all class="group-hover:scale-90" :src="getImg" :alt="name">
+      <div absolute inset-0 mx4 my2 rounded-lg :style="{ background: generateColor }" />
     </button>
     <ArchModal :title="name" :favicon="favicon" :opened="openModal" @close="openModal = false">
       <template #body>
-        <ArchSlider :name="name" :images="images as string[]" />
-        <div v-if="$slots.default" class="relative -mt-12 mx-8 mb-10">
-          <div :style="{ '--arch-portfolio-color': generateColor }" class="bg-white bg-opacity-50 backdrop-blur px-8 py-4 rounded-lg shadow-lg mb-4">
-            <ul v-if="links" class="flex justify-center gap-5">
+        <ArchSlider :name="name" :images="images" />
+        <div v-if="$slots.default" relative mx8 mb10 mt--12>
+          <div :style="{ '--arch-portfolio-color': generateColor }" bg-glass rounded-lg shadow-lg px8 py4 mb4>
+            <ul v-if="links" flex justify-center gap-5>
               <li v-for="link in links" :key="link.title">
                 <NuxtLink :to="link.url" target="_blank">
                   <Icon :name="link.icon" />
@@ -100,21 +100,21 @@ const generateColor = computed(() => {
         </div>
       </template>
       <template #footer>
-        <ArchButton size="sm" @click="openModal = false">
-          Close
-        </ArchButton>
+        <button @click="openModal = false">
+          <span text-base>
+            Close
+          </span>
+        </button>
       </template>
     </ArchModal>
   </figure>
 </template>
 
-<style lang="scss">
-h1, h2, h3, h4, h5, h6 {
-  a {
-    -webkit-text-fill-color: transparent;
-    background: var(--arch-portfolio-color);
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
+<style>
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  -webkit-text-fill-color: transparent;
+  background: var(--arch-portfolio-color);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 </style>

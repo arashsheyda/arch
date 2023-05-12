@@ -1,21 +1,19 @@
 <script lang="ts" setup>
-import type { Variants } from '~arch/types/variants'
-import type { Sizes } from '~arch/types/sizes'
 import NuxtLink from '#app/components/nuxt-link'
 
 const props = defineProps({
   variant: {
-    type: String as PropType<Variants>,
+    type: String,
     default: 'primary',
     required: false,
   },
   textColor: {
-    type: String as PropType<Variants>,
+    type: String,
     default: 'white',
     required: false,
   },
   size: {
-    type: String as PropType<Sizes>,
+    type: String,
     default: 'md',
     required: false,
   },
