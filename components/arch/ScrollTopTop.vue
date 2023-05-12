@@ -8,7 +8,16 @@ function scrollToTop() {
 </script>
 
 <template>
-  <ArchButton label="Scroll To Top" variant="white" shadow="lg" text-color="black" rounded="full" class="fixed right-4 md:bottom-6 bottom-16 dark:bg-dark dark:text-white" @click="scrollToTop">
-    <Icon name="tabler:chevron-up" class="h-5 w-6" />
-  </ArchButton>
+  <button
+    aria-label="Scroll To Top"
+    rounded-full
+    bg-white
+    shadow-lg
+    px-3 py-3 h-12 w-12
+    fixed right-4 md:bottom-6 bottom-16
+    dark:bg-dark
+    @click="scrollToTop"
+  >
+    <Icon name="tabler:chevron-up" class="h-5 w-6 text-white" />
+  </button>
 </template>
