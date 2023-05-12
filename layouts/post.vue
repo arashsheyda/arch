@@ -110,7 +110,7 @@ onMounted(() => {
     </ArchBox>
 
     <ArchSidebar class="md:col-span-3 md:block hidden">
-      <ArchBox v-if="page.body.toc.links.length" title="Table Of Contents" icon="uil:list-ui-alt" :hideable="true" class="p-5 mb5">
+      <ArchBox v-if="page.body.toc.links.length" max-h-xs of-auto title="Table Of Contents" icon="uil:list-ui-alt" :hideable="true" class="p-5 mb5">
         <ArchPostToc :links="page.body.toc.links" />
       </ArchBox>
 
