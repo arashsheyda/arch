@@ -4,7 +4,7 @@ const { page } = useContent()
 const route = useRoute()
 
 const [prev, next] = await queryContent()
-  .only(['_path', 'title'])
+  .only(['_path', 'title', '_dir'])
   .sort({ date: 1 })
   .findSurround(route.path)
 
@@ -119,7 +119,7 @@ onMounted(() => {
       </ArchBox>
 
       <ArchBox title="Navigation" icon="uil:list-ul" :divider="false" :hideable="true" class="p-5 mb5">
-        <ArchPostNavigation :prev="prev" :next="next" />
+        <ArchPostNavigation :prev="prev" :next="next" :directory="page._dir" />
       </ArchBox>
     </ArchSidebar>
   </div>
