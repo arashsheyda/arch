@@ -18,6 +18,6 @@ function scrollToTop() {
     dark:bg-dark
     @click="scrollToTop"
   >
-    <Icon name="tabler:chevron-up" class="h-5 w-6 text-white" />
+    <Icon name="tabler:chevron-up" class="h-5 w-6 text-base" />
   </button>
 </template>
