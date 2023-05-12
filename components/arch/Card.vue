@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { NuxtLink } from '#components'
+
 defineProps({
   icon: {
     type: String,
@@ -18,14 +20,20 @@ defineProps({
     type: String,
     required: true,
   },
+  // eslint-disable-next-line vue/prop-name-casing
+  _path: {
+    type: String,
+    default: null,
+    required: false,
+  },
 })
 </script>
 
 <template>
-  <div class="group p-1 bg-animate rounded-2xl text-center transition-all">
+  <component :is="_path ? NuxtLink : 'div'" :to="_path" class="group p-1 bg-animate rounded-2xl text-center transition-all">
     <div class="w-full h-full p-8 rounded-xl bg-gray-100 dark:bg-darker">
       <div class="flex justify-center mb-2">
-        <Icon v-if="icon" :name="icon" />
+        <Icon v-if="icon" :name="icon" h-10 w-10 />
         <ProseImg v-if="image" height="50" width="50" :src="image" :alt="title" />
       </div>
       <div>
@@ -37,17 +45,17 @@ defineProps({
         </p>
       </div>
     </div>
-  </div>
+  </component>
 </template>
 
 <style>
 .bg-animate:hover {
   background: linear-gradient(277deg, #fd004c, #fe9000, #fff020, #3edf4b, #3363ff, #b102b7, #fd004c);
   background-size: 300%;
-  animation: AnimateBackgroud 2s ease-out infinite;
+  animation: AnimateBackground 2s ease-out infinite;
 }
 
-@keyframes AnimateBackgroud {
+@keyframes AnimateBackground {
   0% {
     background-position: 0;
   }
