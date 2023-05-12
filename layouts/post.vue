@@ -45,7 +45,7 @@ function toggleShow(name?: string) {
 onMounted(() => {
   const tocItems = document.querySelectorAll('.toc-item')
 
-  function updateActivTocItem() {
+  function updateActiveTocItem() {
     const fromTop = window.scrollY
     tocItems.forEach((link: any) => {
       const section = document.querySelector(link.hash)
@@ -53,17 +53,16 @@ onMounted(() => {
     })
   }
 
-  window.addEventListener('scroll', updateActivTocItem)
+  window.addEventListener('scroll', updateActiveTocItem)
 })
 </script>
 
 <template>
-  <div class="grid grid-cols-12 gap-5">
-    <OgImageStatic :component="page.island || 'ArchOgImagePost'" :title="page.title" :image="page.image" v-bind="page.ogImage || {}" />
-    <ArchBox :size="9" class="pb-20 p-4 -mt-32 md:mt-0 mb-16 md:mb-0">
+  <div grid="~ cols-12" gap-5>
+    <ArchBox md:col-span-9 pb20 p4 mt--32 mb16 md-mt0 md-mb0>
       <ArchBreadcrumb />
-      <div class="article-content mb-4 dark:text-white">
-        <header class="header-post">
+      <div class="article-content" mb4 dark:text-white>
+        <header v-if="!page._empty" class="header-post">
           <h1>{{ page.title }}</h1>
           <div v-if="page.description" class="caption-post">
             <p>{{ page.description }}</p>
@@ -73,22 +72,22 @@ onMounted(() => {
           </div>
         </header>
 
-        <div :class="{ 'shadow-lg': show }" class="md:hidden sticky top-0 bg-white dark:bg-dark bg-opacity-50 backdrop-blur p-4 rounded-lg z-10 my-4 border dark:border-gray-500">
-          <div class="flex justify-between">
-            <button :class="{ 'text-primary': showContent }" @click="toggleShow('content')">
+        <div :class="{ 'shadow-lg': show }" md-hidden sticky top-0 bg-base bg-opacity-50 backdrop-blur p4 rounded-lg z-10 my4 border dark:border-gray-500>
+          <div flex justify-between>
+            <button aria-label="Content" :class="{ 'text-primary': showContent }" @click="toggleShow('content')">
               <Icon name="uil:list-ui-alt" />
               Content
             </button>
-            <button :class="{ 'text-primary': showSettings }" class="border-gray-300 dark:border-gray-500 border-r border-l px-3" @click="toggleShow('settings')">
+            <button aria-label="Settings" :class="{ 'text-primary': showSettings }" class="border-gray-300 dark:border-gray-500 border-r border-l px-3" @click="toggleShow('settings')">
               <Icon name="uil:setting" />
               Settings
             </button>
-            <button :class="{ 'text-primary': showNavigation }" @click="toggleShow('navigation')">
+            <button aria-label="Navigation" :class="{ 'text-primary': showNavigation }" @click="toggleShow('navigation')">
               <Icon name="uil:list-ul" />
               Navigation
             </button>
           </div>
-          <div v-if="show" class="mt-4">
+          <div v-if="show" class="mt4">
             <hr class="my-4">
             <div v-if="showContent">
               <ArchPostToc :links="page.body.toc.links" />
@@ -99,10 +98,10 @@ onMounted(() => {
             <div v-if="showNavigation">
               <ArchPostNavigation :prev="prev" :next="next" />
             </div>
-            <ArchButton class="mt-4 w-full bg-primary text-white" size="xs" @click="toggleShow()">
+            <button aria-label="Close" class="mt4 w-full bg-primary text-white" size="xs" @click="toggleShow()">
               <Icon name="tabler:x" />
               Close
-            </ArchButton>
+            </button>
           </div>
         </div>
         <slot />
@@ -111,27 +110,17 @@ onMounted(() => {
     </ArchBox>
 
     <ArchSidebar class="md:col-span-3 md:block hidden">
-      <ArchBox v-if="page.body.toc.links.length" title="Table Of Contents" icon="uil:list-ui-alt" :hideable="true" class="p-5 mb-5">
+      <ArchBox v-if="page.body.toc.links.length" title="Table Of Contents" icon="uil:list-ui-alt" :hideable="true" class="p-5 mb5">
         <ArchPostToc :links="page.body.toc.links" />
       </ArchBox>
 
-      <ArchBox title="Settings" icon="uil:setting" :hideable="true" class="p-5 mb-5">
+      <ArchBox title="Settings" icon="uil:setting" :hideable="true" class="p-5 mb5">
         <ArchPostSettings />
       </ArchBox>
 
-      <ArchBox title="Navigation" icon="uil:list-ul" :divider="false" :hideable="true" class="p-5 mb-5">
+      <ArchBox title="Navigation" icon="uil:list-ul" :divider="false" :hideable="true" class="p-5 mb5">
         <ArchPostNavigation :prev="prev" :next="next" />
       </ArchBox>
     </ArchSidebar>
   </div>
 </template>
-
-<style lang="scss">
-.arch-post-layout {
-  h1, h2, h3 {
-    a {
-      color: #00c7c7;
-    }
-  }
-}
-</style>

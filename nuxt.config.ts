@@ -4,10 +4,6 @@ const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
 
-  extends: [
-    'nuxt-seo-kit',
-  ],
-
   app: {
     keepalive: true,
   },
@@ -23,24 +19,31 @@ export default defineNuxtConfig({
     },
   },
 
-  components: {
-    dirs: [
-      {
-        global: true,
-        prefix: 'arch',
-        path: resolve('./components/arch'),
-      },
-    ],
-  },
+  components: [
+    {
+      global: true,
+      prefix: 'arch',
+      path: resolve('./components/arch'),
+    },
+  ],
+
+  extends: [
+    'nuxt-seo-kit',
+  ],
 
   modules: [
     'nuxt-icon',
+    '@vueuse/nuxt',
+    '@unocss/nuxt',
     '@nuxt/content',
     '@nuxt/devtools',
     'nuxt-config-schema',
     '@nuxtjs/color-mode',
-    '@nuxtjs/tailwindcss',
   ],
+
+  unocss: {
+    configFile: resolve('./uno.config.ts'),
+  },
 
   content: {
     documentDriven: true,
@@ -59,22 +62,5 @@ export default defineNuxtConfig({
     globalName: '__COLOR_MODE__',
     storageKey: 'color-mode',
     classSuffix: '',
-  },
-
-  tailwindcss: {
-    configPath: resolve('./tailwind.config.ts'),
-    exposeConfig: false,
-    viewer: false,
-  },
-
-  nitro: {
-    esbuild: {
-      options: {
-        target: 'esnext',
-      },
-    },
-    prerender: {
-      crawlLinks: true,
-    },
   },
 })

@@ -74,17 +74,17 @@ const colors = {
 </script>
 
 <template>
-  <div :class="{ 'md:p-32 p-8': padding }" class="flex items-center justify-center w-full">
-    <div class="text-center">
-      <div v-if="icon" :class="colors[color]['100']" class="inline-flex rounded-full p-4">
-        <div :class="colors[color]['200']" class="rounded-full p-4">
-          <Icon :class="colors[color]['500']" class="w-12 h-12" :name="icon" />
+  <div flex items-center justify-center w-full :class="{ 'md:p32 p8': padding }">
+    <div text-center>
+      <div v-if="icon" inline-flex rounded-full p4 :class="colors[color]['100']">
+        <div :class="colors[color]['200']" rounded-full p4>
+          <Icon :class="colors[color]['500']" w12 h12 :name="icon" />
         </div>
       </div>
-      <h1 class="mt-5 text-[36px] font-medium text-slate-800 lg:text-4xl">
+      <h1 mt5 font-medium text-base lg-text-4xl>
         <strong :class="colors[color]['500']">{{ code }}</strong> | {{ title }}
       </h1>
-      <p class="text-slate-500 mt-5 lg:text-xl">
+      <p text-slate-500 mt4 lg-text-xl>
         {{ message }}
       </p>
     </div>

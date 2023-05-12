@@ -1,5 +1,5 @@
 <template>
-  <div class="dark:text-white">
-    Settings
+  <div dark:text-white>
+    Under construction
   </div>
 </template>

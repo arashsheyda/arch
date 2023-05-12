@@ -1,0 +1,205 @@
+svg {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.medium-zoom-overlay {
+  background: #00000050 !important;
+  z-index: 99999 !important;
+  backdrop-filter: blur(10px);
+}
+
+.medium-zoom-image {
+  z-index: 999999 !important;
+}
+
+/* Color Mode */
+.color-mode-light svg  {
+  color: #f9530b;
+  filter: drop-shadow(0 0 5px #f9530b);
+}
+
+.color-mode-coffee svg {
+  color: #712409;
+  filter: drop-shadow(0 0 5px #9a572a);
+}
+
+.color-mode-dark svg {
+  color: #7b1b98;
+  filter: drop-shadow(0 0 5px #2d20d2);
+}
+
+/* Footer Powered By */
+.powered .nuxt {
+  opacity: 0;
+  transition: all 0.3s ease;
+  transform: translate(20px, 0px);
+}
+.powered .arch {
+  opacity: 1;
+  transition: all 0.3s ease;
+  height: 1.5rem;
+  width: 1.5rem;
+  transform: translate(-22px, 0px);
+}
+.powered:hover {
+  color: #00dc82 !important;
+  filter: drop-shadow(0 0 7px #00dc82) !important;
+}
+.powered:hover .arch {
+  opacity: 0;
+  transform: translate(-50px, 0px);
+}
+.powered:hover .nuxt {
+  opacity: 1;
+  transform: translate(0px, 0px);
+}
+
+
+/* Code Block */
+.code-block {
+  font-family: 'Fira Code', monospace;
+}
+.code-block pre code {
+  display: grid;
+}
+.code-block pre code .line {
+  counter-increment: number;
+  border-radius: 7px;
+}
+.code-block pre code .line:before {
+  opacity: 0.1;
+  padding: 5px 15px 5px 10px;
+  display: inline-block;
+  content: counter(number);
+}
+.code-block pre code .line:hover:before {
+  opacity: 1;
+}
+.code-block .language {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  font-size: 11px;
+  padding: 5px 10px;
+}
+.code-block .filename {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-size: 11px;
+  padding: 5px 10px;
+  border-radius: 0px 13px 0px 13px;
+}
+.code-block.js .language {
+  color: #f7df1e;
+  text-shadow: 0 0 5px #f7df1e;
+}
+.code-block.vue .language {
+  color: #41b883;
+  filter: drop-shadow(0 0 5px #41b883);
+}
+.code-block.react .language {
+  color: #61dafb;
+  text-shadow: 0 0 5px #61dafb;
+}
+.code-block.ts .language {
+  color: #007acc;
+  text-shadow: 0 0 5px #007acc;
+}
+.code-block.html .language {
+  color: #e34c26;
+  text-shadow: 0 0 5px #e34c26;
+}
+.code-block.css .language {
+  color: #2965f1;
+  text-shadow: 0 0 5px #2965f1;
+}
+.code-block.md .language {
+  color: #1b7ed9;
+  text-shadow: 0 0 5px #1b7ed9;
+}
+.code-block:hover .copy {
+  opacity: 1;
+}
+.code-block:hover .copy:hover {
+  box-shadow: 0 0 7px 0px var(--box-shadow);
+}
+.code-block:hover .filename {
+  opacity: 0;
+}
+
+
+/* Transitions */
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.4s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* slide up */
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.4s;
+}
+
+.slide-up-enter-from,
+.slide-up-leave-to {
+  transform: translateY(100%);
+}
+
+/* slide down */
+.slide-down-enter-active,
+.slide-down-leave-active {
+  transition: all 0.4s;
+}
+
+.slide-down-enter-from,
+.slide-down-leave-to {
+  transform: translateY(-100%);
+}
+
+/* slide left */
+.slide-left-enter-active,
+.slide-left-leave-active {
+  transition: all 0.4s;
+}
+
+.slide-left-enter-from,
+.slide-left-leave-to {
+  transform: translateX(-100%);
+}
+
+/* slide right */
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: all 0.4s;
+}
+
+.slide-right-enter-from,
+.slide-right-leave-to {
+  transform: translateX(100%);
+}
+
+/* scale */
+.scale-enter-active,
+.scale-leave-active {
+  transition: all 0.4s;
+}
+
+.scale-enter-from,
+.scale-leave-to {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
+  height: 0 !important;
+}
