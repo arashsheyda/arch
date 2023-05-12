@@ -41,12 +41,13 @@
     "personal-website"
   ],
   "scripts": {
-    "prepare": "nuxi prepare && nuxi prepare",
-    "dev": "nuxi prepare & nuxi dev",
+    "prepare": "nuxi prepare",
+    "dev": "pnpm prepare & nuxi dev",
     "build": "nuxi build",
     "generate": "nuxi generate",
     "preview": "nuxi preview",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "release": "npm run lint && npm run build && changelogen --release && npm publish && git push --follow-tags"
   },
   "dependencies": {
     "@nuxt/content": "^2.6.0",
@@ -63,6 +64,7 @@
     "@antfu/eslint-config": "^0.38.6",
     "@nuxt/devtools": "^0.4.6",
     "@types/prettier": "^2.7.2",
+    "changelogen": "^0.5.3",
     "eslint": "^8.39.0",
     "lint-staged": "^13.2.2",
     "nuxt": "^3.4.3",
