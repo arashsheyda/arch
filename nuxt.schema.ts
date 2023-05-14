@@ -142,9 +142,19 @@ export default defineNuxtSchema({
           type: 'object',
           properties: {
             copyright: {
-              type: 'string',
-              default: 'Arash Sheyda',
-              description: 'Author of the website',
+              type: 'object',
+              properties: {
+                name: {
+                  type: 'string',
+                  default: 'Developer',
+                  description: 'Name of author',
+                },
+                link: {
+                  type: 'string',
+                  default: '/',
+                  description: 'link of author',
+                },
+              },
             },
             poweredBy: {
               type: 'boolean',

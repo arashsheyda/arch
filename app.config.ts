@@ -23,7 +23,10 @@ export default defineAppConfig({
       location: 'World',
     },
     footer: {
-      copyright: 'Arash Sheyda',
+      copyright: {
+        name: 'Developer',
+        link: '/',
+      },
       links: [],
       poweredBy: true,
     },
