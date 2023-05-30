@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { NuxtLink } from '#components'
+
 defineProps({
   icon: {
     type: String,
@@ -12,11 +14,16 @@ defineProps({
     type: String,
     required: true,
   },
+  link: {
+    type: String,
+    default: null,
+    required: false,
+  },
 })
 </script>
 
 <template>
-  <NuxtLink to="#" class="group flex items-center md:justify-start justify-center md:my-6">
+  <component :is="link ? NuxtLink : 'div'" :to="link" class="group flex items-center md:justify-start justify-center md:my-6">
     <div class="bg-gray-100 dark:bg-darker h-10 w-10 flex justify-center items-center rounded-lg group-hover:border-primary mr2 border-2 border-transparent transition-all">
       <Icon class="text-primary" :name="icon" />
     </div>
@@ -26,5 +33,5 @@ defineProps({
         {{ value }}
       </p>
     </div>
-  </NuxtLink>
+  </component>
 </template>

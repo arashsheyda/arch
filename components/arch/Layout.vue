@@ -38,8 +38,8 @@ const { y } = useWindowScroll()
                   </div>
                   <div a-divider />
                   <div grid="~ cols-4" md-block>
-                    <ArchSidebarInfoItem v-if="arch.aside?.email" icon="uil:envelope" title="Email" :value="arch.aside.email" />
-                    <ArchSidebarInfoItem v-if="arch.aside?.phone" icon="uil:phone" title="Phone" :value="arch.aside.phone" />
+                    <ArchSidebarInfoItem v-if="arch.aside?.email" icon="uil:envelope" title="Email" :value="arch.aside.email" :link="`mailto:${arch.aside.email}`" />
+                    <ArchSidebarInfoItem v-if="arch.aside?.phone" icon="uil:phone" title="Phone" :value="arch.aside.phone" :link="`tel:${arch.aside.phone}`" />
                     <ArchSidebarInfoItem v-if="arch.aside?.company" icon="uil:building" title="Company" :value="arch.aside.company" />
                     <ArchSidebarInfoItem v-if="arch.aside?.location" icon="uil:map" title="Location" :value="arch.aside.location" />
                   </div>
