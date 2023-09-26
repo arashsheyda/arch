@@ -1,40 +1,20 @@
 <script lang="ts" setup>
 // import { withBase } from 'ufo'
 
-const props = defineProps({
-  src: {
-    type: String,
-    default: '',
-  },
-  alt: {
-    type: String,
-    default: '',
-  },
-  width: {
-    type: [String, Number],
-    default: undefined,
-  },
-  lazy: {
-    type: Boolean,
-    default: true,
-  },
-  height: {
-    type: [String, Number],
-    default: undefined,
-  },
-  zoomable: {
-    type: Boolean,
-    default: false,
-    required: false,
-  },
-  rounded: {
-    type: Boolean,
-    default: true,
-    required: false,
-  },
+const props = withDefaults(defineProps<{
+  src: string
+  alt?: string
+  width?: number
+  height?: number
+  lazy?: boolean
+  zoomable?: boolean
+  rounded?: boolean
+}>(), {
+  lazy: true,
+  rounded: true,
 })
 
-// const arch = useArch()
+const isImage = computed(() => props.src.startsWith('/') || props.src.startsWith('http'))
 
 const loadingType = computed(() => {
   return (props.lazy === true) ? 'lazy' : 'eager'
@@ -53,6 +33,7 @@ const loadingType = computed(() => {
 
 <template>
   <img
+    v-if="isImage"
     :class="[{ 'rounded-lg': rounded }, { zoomable }]"
     :src="src"
     :alt="alt"
@@ -60,4 +41,5 @@ const loadingType = computed(() => {
     :height="height"
     :loading="loadingType"
   >
+  <Icon v-else :name="src" />
 </template>

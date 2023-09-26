@@ -16,9 +16,8 @@ const props = defineProps({
     default: 'md',
     required: false,
   },
-  opened: {
+  modelValue: {
     type: Boolean,
-    default: false,
     required: false,
   },
   transition: {
@@ -29,18 +28,22 @@ const props = defineProps({
   // TODO: add options for sticky, etc
 })
 
-const emit = defineEmits(['close'])
+const emit = defineEmits<{ (...args: any): void }>()
+const modal = useVModel(props, 'modelValue', emit, { passive: true })
 
-function close() {
-  emit('close')
-}
+const container = ref<HTMLElement>()
 
-const modal = ref<HTMLElement>()
+watch(modal, (value) => {
+  if (value)
+    document.body.classList.add('overflow-hidden')
+  else
+    document.body.classList.remove('overflow-hidden')
+})
 
-onClickOutside(modal, () => {
-  close()
+onClickOutside(container, () => {
+  modal.value = false
 }, {
-  ignore: ['.zoomable'],
+  ignore: ['.zoomable', '.medium-zoom--opened'],
 })
 
 const calculateSize = computed(() => {
@@ -61,28 +64,37 @@ const { height } = useWindowSize()
 <template>
   <Teleport to="body">
     <Transition name="fade">
-      <div v-if="opened" fixed inset-0 z-9999 bg-black bg-opacity-50 backdrop-blur transition-all />
+      <div v-if="modal" fixed inset-0 z-9999 bg-black bg-opacity-50 backdrop-blur transition-all />
     </Transition>
     <Transition :name="transition">
-      <div v-if="opened" fixed inset-0 z-9999>
+      <div v-if="modal" fixed inset-0 z-9999>
         <div flex items-end justify-center p4 text-center class="sm:items-center sm:p-0">
-          <div ref="modal" :class="calculateSize" relative transform overflow-hidden rounded-lg text-left shadow-xl transition-all sm:my8>
+          <div ref="container" :class="calculateSize" relative transform overflow-hidden rounded-lg text-left shadow-xl transition-all sm:my8>
             <div bg-body overflow-y-auto :style="{ height: `${height - (height / 12)}px` }">
-              <div sticky top-0 z-10 bg-glass flex items-center justify-between p4 shadow-lg>
-                <h3 flex text-xl font-semibold text-gray-900 dark:text-white>
-                  <ProseImg v-if="favicon" mr2 :width="27" :src="favicon" :alt="title" />
+              <div sticky top-0 z-10 bg-glass flex="~ items-center justify-between" p3 shadow-lg>
+                <h3 flex="~ items-center gap-2" text-xl font-semibold text-gray-900 dark:text-white>
+                  <ProseImg :width="27" :src="favicon" :alt="title" />
+                  <!-- <template v-if="favicon">
+                    <ProseImg v-if="favicon.startsWith('/')" :width="27" :src="favicon" :alt="title" />
+                    <Icon v-else :name="favicon" />
+                  </template> -->
                   {{ title }}
                 </h3>
-                <button aria-label="Close Modal" @click="close">
-                  <svg text-base w-5 h-5 aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
-                  <span sr-only>Close modal</span>
+                <button aria-label="Close" @click="modal = false">
+                  <Icon name="carbon:close" text-base />
+                  <span sr-only>Close</span>
                 </button>
               </div>
-              <div p4 mb8 text-base>
-                <slot name="body" />
+              <div p4 mb8 text-base-light>
+                <slot v-if="$slots.body" name="body" />
+                <slot v-else />
               </div>
               <div absolute bottom-0 w-full bg-glass px4 py3 border="t base" class="sm:flex sm:flex-row-reverse sm:px6">
-                <slot name="footer" />
+                <slot name="footer">
+                  <button aria-label="Close" button="primary" @click="modal = false">
+                    Close
+                  </button>
+                </slot>
               </div>
             </div>
           </div>

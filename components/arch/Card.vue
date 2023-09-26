@@ -1,40 +1,22 @@
 <script lang="ts" setup>
 import { NuxtLink } from '#components'
 
-defineProps({
-  icon: {
-    type: String,
-    default: null,
-    required: false,
-  },
-  image: {
-    type: String,
-    default: null,
-    required: false,
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
+defineProps<{
+  icon?: string
+  image?: string
+  title?: string
+  description?: string
   // eslint-disable-next-line vue/prop-name-casing
-  _path: {
-    type: String,
-    default: null,
-    required: false,
-  },
-})
+  _path?: string
+}>()
 </script>
 
 <template>
-  <component :is="_path ? NuxtLink : 'div'" :to="_path" class="group p-1 bg-animate rounded-2xl text-center transition-all">
-    <div class="w-full h-full p-8 rounded-xl bg-gray-100 dark:bg-darker">
+  <component :is="_path ? NuxtLink : 'div'" :to="_path" class="group px.6 py.5 bg-animate bg-gray/20 rounded-2xl text-center transition-all">
+    <div class="w-full h-full p-8 rounded-2xl bg-gray-100 dark:bg-darker">
       <div class="flex justify-center mb-2">
         <Icon v-if="icon" :name="icon" h-10 w-10 />
-        <ProseImg v-if="image" height="50" width="50" :src="image" :alt="title" />
+        <ProseImg v-if="image" :height="50" :width="50" :src="image" :alt="title" />
       </div>
       <div>
         <h3 class="text-lg font-bold text-slate-700 dark:text-white mb-2">

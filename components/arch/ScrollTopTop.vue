@@ -13,11 +13,11 @@ function scrollToTop() {
     rounded-full
     bg-white
     shadow-lg
-    px-3 py-3 h-12 w-12
-    fixed right-4 md:bottom-6 bottom-16
-    dark:bg-dark
+    h-12 w-12
+    fixed right-5 border="~ base" md:bottom-6 bottom-16
+    dark:bg-dark z-99
     @click="scrollToTop"
   >
-    <Icon name="tabler:chevron-up" class="h-5 w-6 text-base" />
+    <Icon name="tabler:chevron-up" class="h-6 w-6 text-base" />
   </button>
 </template>

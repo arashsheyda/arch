@@ -1,12 +1,16 @@
 <script lang="ts" setup>
+defineProps<{
+  hideBanner: boolean
+}>()
+
 const { navigation } = useContent()
 
 const filtered = computed(() => [])
 
 const archNav = ref<HTMLElement>()
-const navPosition = ref<number>(0)
-const fixed = ref<boolean>(false)
-const width = ref<number>(0)
+const navPosition = ref(0)
+const fixed = ref(false)
+const width = ref(0)
 
 const tree = computed(() => {
   return (navigation.value || []).filter((item: any) => {
@@ -46,20 +50,17 @@ onMounted(() => {
   <nav
     id="arch-nav"
     ref="archNav"
-    :class="{ 'md:rounded-lg md:bg-opacity-100 md:mx-20': !fixed }"
-    class="font-medium md:sticky md:top-0 fixed bottom-0 right-0 left-0 -mt-7 backdrop-blur bg-opacity-50 z-999 flex justify-around bg-white dark:bg-dark shadow-xl transition-all"
+    :class="{ 'md:rounded-lg md:mx-20 md:bg-opacity-100 md:dark:bg-opacity-100': !fixed && !hideBanner }"
+    class="font-medium md:sticky md:top-0 fixed bottom-0 right-0 left-0 -mt-7 z-999 flex justify-around bg-glass shadow-xl transition-all"
   >
     <NuxtLink
       v-for="item in tree"
       :key="item._path"
       :to="item._path"
-      text-center
-      py4
-      flex-1
-      md="px4"
-      text-gray-600 dark:text-white hover:dark:text-white
-      hover:bg-gray-100 hover:dark:bg-neutral-800 hover:bg-opacity-50 relative
-      hover="text-black after:w-full after:bg-gray-700 dark:after:bg-gray-300"
+      flex="~ 1 justify-center items-center gap-1"
+      py4 md="px4"
+      text-gray-600 dark:text-white hover:dark:text-white relative
+      hover="bg-gray-100 dark:bg-neutral-800 bg-opacity-50 dark:bg-opacity-30 text-black after:w-full after:bg-gray-700 dark:after:bg-gray-300"
       active-class="text-primary! after:w-full! after:bg-primary!"
       transition-all
       class="nav-item"

@@ -2,26 +2,15 @@
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
 
-defineProps({
-  name: {
-    type: String,
-    required: true,
-  },
-  images: {
-    type: Array as PropType<string[]>,
-    required: true,
-    default: () => [],
-  },
-  navigation: {
-    type: Boolean,
-    required: false,
-    default: true,
-  },
-  zoomable: {
-    type: Boolean,
-    required: false,
-    default: true,
-  },
+withDefaults(defineProps<{
+  name: string
+  images?: string | string[]
+  navigation?: boolean
+  zoomable?: boolean
+}>(), {
+  images: () => [],
+  navigation: true,
+  zoomable: true,
 })
 </script>
 
@@ -42,7 +31,3 @@ defineProps({
   </ClientOnly>
   <ProseImg v-else :src="Array.isArray(images) ? images[0] : images" :alt="name" :zoomable="zoomable" />
 </template>
-
-<style>
-
-</style>

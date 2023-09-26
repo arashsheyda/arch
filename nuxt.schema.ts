@@ -51,6 +51,11 @@ export default defineNuxtSchema({
               default: '#ffffff',
               description: 'Theme color of the website (for mobile)',
             },
+            sponsor: {
+              type: 'string',
+              default: null,
+              description: 'A link to your sponsorship page',
+            },
           },
         },
       },
@@ -63,7 +68,7 @@ export default defineNuxtSchema({
        */
       banner: {
         $schema: {
-          type: 'object',
+          type: 'object' | 'boolean',
           properties: {
             image: {
               type: 'string',

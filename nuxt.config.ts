@@ -8,6 +8,10 @@ export default defineNuxtConfig({
     keepalive: true,
   },
 
+  // experimental: {
+  //   componentIslands: 'local',
+  // },
+
   alias: {
     '~arch': resolve('./'),
   },
@@ -36,7 +40,6 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@unocss/nuxt',
     '@nuxt/content',
-    '@nuxt/devtools',
     'nuxt-config-schema',
     '@nuxtjs/color-mode',
   ],
@@ -48,9 +51,7 @@ export default defineNuxtConfig({
   content: {
     documentDriven: true,
     highlight: {
-      theme: {
-        default: 'one-dark-pro',
-      },
+      theme: 'one-dark-pro',
     },
     navigation: {
       fields: ['title', 'icon', '_path'],

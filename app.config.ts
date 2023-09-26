@@ -31,13 +31,13 @@ export default defineAppConfig({
       poweredBy: true,
     },
     socials: [
-      {
-        title: 'Github',
-        icon: 'uil:github',
-        url: 'https://github.com/arashsheyda/arch',
-        color: '#000000',
-        target: '_blank',
-      },
+      // {
+      //   title: 'Github',
+      //   icon: 'uil:github',
+      //   url: 'https://github.com/arashsheyda/arch',
+      //   color: '#000000',
+      //   target: '_blank',
+      // },
     ],
   },
 })

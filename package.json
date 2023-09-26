@@ -1,16 +1,17 @@
 {
   "name": "nuxt-arch",
   "type": "module",
-  "version": "0.1.0-beta",
+  "version": "0.1.0-beta.8",
   "description": "Arch is a Nuxt 3 template for creating your personal website less than a minute.",
   "author": {
     "name": "Arash Sheyda",
     "email": "arashi.sheyda@gmail.com"
   },
   "license": "MIT",
+  "funding": "https://github.com/sponsors/arashsheyda",
   "repository": {
     "type": "git",
-    "url": "https://github.com/arashsheyda/arch.git"
+    "url": "git+https://github.com/arashsheyda/arch.git"
   },
   "keywords": [
     "cv",
@@ -34,6 +35,7 @@
     "plugins",
     "styles",
     "types",
+    "utils",
     "app.config.ts",
     "app.vue",
     "nuxt.config.ts",
@@ -42,7 +44,7 @@
   ],
   "scripts": {
     "prepare": "nuxi prepare",
-    "dev": "pnpm prepare & nuxi dev",
+    "dev": "pnpm prepare & nuxi dev .playground",
     "build": "nuxi build",
     "generate": "nuxi generate",
     "preview": "nuxi preview",
@@ -50,28 +52,26 @@
     "release": "npm run lint && npm run build && changelogen --release && npm publish && git push --follow-tags"
   },
   "dependencies": {
-    "@nuxt/content": "^2.6.0",
-    "@nuxtjs/color-mode": "^3.2.0",
-    "@unocss/nuxt": "^0.51.12",
-    "@vueuse/nuxt": "^10.1.2",
+    "@nuxt/content": "^2.8.2",
+    "@nuxtjs/color-mode": "^3.3.0",
+    "@unocss/nuxt": "^0.56.1",
+    "@vueuse/nuxt": "^10.4.1",
     "medium-zoom": "^1.0.8",
-    "nuxt-icon": "^0.4.0",
-    "nuxt-seo-kit": "^1.3.8",
-    "unocss": "^0.51.12",
+    "nuxt-config-schema": "^0.4.6",
+    "nuxt-icon": "^0.5.0",
+    "nuxt-seo-kit": "^1.3.13",
+    "unocss": "^0.56.1",
     "vue3-carousel": "^0.3.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.38.6",
-    "@nuxt/devtools": "^0.4.6",
-    "@types/prettier": "^2.7.2",
-    "changelogen": "^0.5.3",
-    "eslint": "^8.39.0",
-    "lint-staged": "^13.2.2",
-    "nuxt": "^3.4.3",
-    "nuxt-config-schema": "^0.4.6",
-    "prettier": "^2.8.8",
-    "typescript": "^5.0.4",
-    "vue": "^3.2.47"
+    "@antfu/eslint-config": "^0.43.0",
+    "@nuxt/devtools": "^0.8.4",
+    "changelogen": "^0.5.5",
+    "eslint": "^8.49.0",
+    "lint-staged": "^14.0.1",
+    "nuxt": "^3.7.3",
+    "typescript": "^5.2.2",
+    "vue": "^3.3.4"
   },
   "lint-staged": {
     "*": "eslint --fix"

@@ -17,8 +17,8 @@ function toggleTheme() {
     shadow-lg
     px-3 py-3 h-12 w-12
     :class="`color-mode-${colorMode.preference}`"
-    fixed left-4 md:bottom-6 bottom-16
-    dark:bg-dark
+    fixed left-6 border="~ base" md:bottom-6 bottom-16
+    dark:bg-dark z-99
     @click="toggleTheme"
   >
     <Icon v-if="colorMode.preference === 'dark'" name="line-md:moon-alt-loop" />

@@ -14,7 +14,7 @@ const arch = useArch()
       :target="item.target"
       :title="item.title"
     >
-      <Icon :name="item.icon" :class="item.title" :style="{ '--arch-social-hover': item.color }" />
+      <Icon :name="item.icon" :class="item.title" transition-all :style="{ '--arch-social-hover': item.color }" />
     </NuxtLink>
   </div>
 </template>

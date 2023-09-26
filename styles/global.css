@@ -1,6 +1,26 @@
+.grain {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(https://assets.website-files.com/62e2595f1894d2d0af9b6f0e/62e25b1ae87705f92c844cf6_grain-slow.gif);
+  background-position: 0 0;
+  background-size: auto;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  pointer-events: none;
+  opacity: .05;
+}
+
 svg {
   width: 1.3rem;
   height: 1.3rem;
+}
+
+.icon-xs svg {
+  width: 1.1rem;
+  height: 1.1rem;
 }
 
 .medium-zoom-overlay {
@@ -76,21 +96,6 @@ svg {
 .code-block pre code .line:hover:before {
   opacity: 1;
 }
-.code-block .language {
-  position: absolute;
-  right: 10px;
-  top: 12px;
-  font-size: 11px;
-  padding: 5px 10px;
-}
-.code-block .filename {
-  position: absolute;
-  bottom: 8px;
-  right: 10px;
-  font-size: 11px;
-  padding: 5px 10px;
-  border-radius: 0px 13px 0px 13px;
-}
 .code-block.js .language {
   color: #f7df1e;
   text-shadow: 0 0 5px #f7df1e;
@@ -125,10 +130,6 @@ svg {
 .code-block:hover .copy:hover {
   box-shadow: 0 0 7px 0px var(--box-shadow);
 }
-.code-block:hover .filename {
-  opacity: 0;
-}
-
 
 /* Transitions */
 
@@ -202,4 +203,71 @@ svg {
   display: none;
   width: 0 !important;
   height: 0 !important;
+}
+
+/* Headings */
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+h5 {
+  font-size: 1rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+h6 {
+  font-size: 0.875rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* Prose */
+
+p.prose-p + p.prose-p  {
+  line-height: 1.5;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.prose-a {
+  font-weight: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(125,125,125,.3);
+  transition: border .3s ease-in-out;
+  width: fit-content;
+}
+
+.prose-a:hover {
+  border-bottom: 1px solid rgba(125,125,125,1);
+}
+
+.icon {
+  vertical-align: text-top!important;
 }

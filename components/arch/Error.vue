@@ -74,7 +74,7 @@ const colors = {
 </script>
 
 <template>
-  <div flex items-center justify-center w-full :class="{ 'md:p32 p8': padding }">
+  <div flex items-center justify-center w-full :class="{ 'md:p32 p18': padding }">
     <div text-center>
       <div v-if="icon" inline-flex rounded-full p4 :class="colors[color]['100']">
         <div :class="colors[color]['200']" rounded-full p4>

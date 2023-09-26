@@ -8,7 +8,10 @@ defineProps({
 </script>
 
 <template>
-  <ul ml2>
+  <ul v-if="links.length" ml2>
     <ArchPostTocItem v-for="link in links" :key="link.id" :link="link" />
   </ul>
+  <span v-else>
+    No Table of Content
+  </span>
 </template>

@@ -12,19 +12,20 @@ const paths = computed(() => {
 </script>
 
 <template>
-  <nav class="flex mb-4" aria-label="Breadcrumb">
-    <ol class="inline-flex space-x-1">
-      <li class="inline-flex items-center">
-        <NuxtLink to="/" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-primary dark:text-gray-400 dark:hover:text-white">
+  <nav class="md:flex justify-between mb-4" aria-label="Breadcrumb">
+    <ol class="inline-flex text-base-light">
+      <li class="items-center">
+        <NuxtLink to="/" class="items-center text-sm font-medium" hover="text-white">
           Home
         </NuxtLink>
       </li>
-      <li v-for="(item, index) in paths" :key="index" class="inline-flex items-center capitalize">
+      <li v-for="(item, index) in paths" :key="index" class="items-center capitalize">
         <Icon name="uil:angle-right" />
-        <NuxtLink :class="item.active ? 'text-gray-500' : 'text-gray-700 hover:text-primary  dark:hover:text-white'" :to="item.url" class="text-sm font-medium dark:text-gray-400">
+        <NuxtLink class="text-sm font-medium" :class="item.active ? 'text-white' : 'hover-text-white'" :to="item.url">
           {{ item.name }}
         </NuxtLink>
       </li>
     </ol>
+    <slot />
   </nav>
 </template>

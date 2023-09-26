@@ -27,7 +27,7 @@ const props = defineProps({
     default: null,
     required: false,
   },
-  hideable: {
+  hidable: {
     type: Boolean,
     default: false,
     required: false,
@@ -40,11 +40,6 @@ const props = defineProps({
   component: {
     type: String as PropType<'div' | 'section' | 'article' | 'aside' | 'nav' | 'header' | 'footer' | 'main'>,
     default: 'div',
-    required: false,
-  },
-  sticky: {
-    type: Boolean,
-    default: false,
     required: false,
   },
 })
@@ -88,7 +83,7 @@ const calculateShadow = computed(() => {
       <Icon v-if="minimize" name="uil:circle" />
       <Icon v-else name="uil:compact-disc" />
     </button>
-    <button v-if="hideable" absolute right-4 top-4 text-base-light aria-label="Minimize" @click="hide = !hide">
+    <button v-if="hidable" absolute right-4 top-4 text-base-light aria-label="Minimize" @click="hide = !hide">
       <Icon v-if="hide" name="tabler:minimize" />
       <Icon v-else name="tabler:arrows-diagonal-minimize-2" />
     </button>

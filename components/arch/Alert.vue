@@ -19,7 +19,7 @@ const alertType = computed(() => {
 </script>
 
 <template>
-  <div :class="alertType">
+  <div :class="alertType" mb-2>
     <slot />
   </div>
 </template>

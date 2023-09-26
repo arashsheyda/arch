@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+import { onClickOutside } from '@vueuse/core'
+import { formatDate } from '~arch/utils/formatting'
+
 const { page } = useContent()
 
 const route = useRoute()
@@ -12,6 +15,8 @@ const show = ref(false)
 const showContent = ref(false)
 const showSettings = ref(false)
 const showNavigation = ref(false)
+
+const phoneToc = ref<HTMLElement>()
 
 function toggleShow(name?: string) {
   if (name === 'content') {
@@ -55,24 +60,44 @@ onMounted(() => {
 
   window.addEventListener('scroll', updateActiveTocItem)
 })
+
+onClickOutside(phoneToc, () => {
+  toggleShow()
+})
 </script>
 
 <template>
   <div grid="~ cols-12" gap-5>
     <ArchBox md:col-span-9 pb20 p4 mt--32 mb16 md-mt0 md-mb0>
-      <ArchBreadcrumb />
+      <ArchBreadcrumb>
+        <p text-base-light flex="~ items-center gap-1" class="icon-xs" text-xs mb3.5>
+          {{ formatDate(page.date) }}
+          <Icon name="uil:calendar-alt" />
+        </p>
+      </ArchBreadcrumb>
       <div class="article-content" mb4 dark:text-white>
-        <header v-if="!page._empty" class="header-post">
+        <header v-if="!page._empty" class="mb-8">
           <h1>{{ page.title }}</h1>
-          <div v-if="page.description" class="caption-post">
+          <div v-if="page.description">
             <p>{{ page.description }}</p>
           </div>
-          <div v-if="page.image" class="header-post__image-wrap">
-            <ProseImg class="cover" :src="page.image" :alt="page.title" :zoomable="true" />
+          <div v-if="page.image" class="mt-4">
+            <ProseImg :src="page.image" :alt="page.title" :zoomable="true" />
+          </div>
+          <div v-if="page.links" relative mx-40 mt--6>
+            <div bg-dark bg-op-30 backdrop-blur rounded-lg shadow-lg px4 py2 border="~ base">
+              <ul flex="~ justify-center items-center gap-5">
+                <li v-for="link in page.links" :key="link.title">
+                  <NuxtLink :title="link.title" :to="link.url" target="_blank">
+                    <ProseImg :width="23" :src="link.icon" :alt="link.title" />
+                  </NuxtLink>
+                </li>
+              </ul>
+            </div>
           </div>
         </header>
 
-        <div :class="{ 'shadow-lg': show }" md-hidden sticky top-0 bg-base bg-opacity-50 backdrop-blur p4 rounded-lg z-10 my4 border dark:border-gray-500>
+        <div ref="phoneToc" :class="{ 'shadow-lg': show }" md-hidden sticky top-0 bg-base bg-opacity-50 backdrop-blur p4 rounded-lg z-999 my4 border dark:border-gray-500>
           <div flex justify-between>
             <button aria-label="Content" :class="{ 'text-primary': showContent }" @click="toggleShow('content')">
               <Icon name="uil:list-ui-alt" />
@@ -96,7 +121,7 @@ onMounted(() => {
               <ArchPostSettings />
             </div>
             <div v-if="showNavigation">
-              <ArchPostNavigation :prev="prev" :next="next" />
+              <ArchPostNavigation :prev="prev" :next="next" :directory="page._dir" />
             </div>
             <button aria-label="Close" class="mt4 w-full bg-primary text-white" size="xs" @click="toggleShow()">
               <Icon name="tabler:x" />
@@ -104,23 +129,33 @@ onMounted(() => {
             </button>
           </div>
         </div>
-        <slot />
+
+        <div class="arch-post-content" md:pb0 pb-10>
+          <slot />
+        </div>
         <ArchFooter />
       </div>
     </ArchBox>
 
     <ArchSidebar class="md:col-span-3 md:block hidden">
-      <ArchBox v-if="page.body.toc.links.length" max-h-xs of-auto title="Table Of Contents" icon="uil:list-ui-alt" :hideable="true" class="p-5 mb5">
+      <ArchBox v-if="page.body.toc.links.length" max-h-xs of-auto title="Table Of Contents" icon="uil:list-ui-alt" :hidable="true" class="p-5 mb5">
         <ArchPostToc :links="page.body.toc.links" />
       </ArchBox>
 
-      <ArchBox title="Settings" icon="uil:setting" :hideable="true" class="p-5 mb5">
+      <ArchBox title="Settings" icon="uil:setting" :hidable="true" class="p-5 mb5">
         <ArchPostSettings />
       </ArchBox>
 
-      <ArchBox title="Navigation" icon="uil:list-ul" :divider="false" :hideable="true" class="p-5 mb5">
+      <ArchBox title="Navigation" icon="uil:list-ul" :divider="false" :hidable="true" class="p-5 mb5">
         <ArchPostNavigation :prev="prev" :next="next" :directory="page._dir" />
       </ArchBox>
     </ArchSidebar>
   </div>
 </template>
+
+<style>
+.arch-post-content ul {
+  list-style: circle;
+  @apply ml-5 mb2;
+}
+</style>

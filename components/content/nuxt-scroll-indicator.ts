@@ -11,6 +11,7 @@ export default defineComponent({
     color: {
       type: String,
       default: 'linear-gradient(to right, #00dc82 0%,#34cdfe 50%,#0047e1 100%)',
+      required: false,
     },
     background: {
       type: String,
