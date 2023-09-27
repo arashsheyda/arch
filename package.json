@@ -1,7 +1,7 @@
 {
   "name": "nuxt-arch",
   "type": "module",
-  "version": "0.1.0-beta.8",
+  "version": "0.1.0-beta.9",
   "description": "Arch is a Nuxt 3 template for creating your personal website less than a minute.",
   "author": {
     "name": "Arash Sheyda",
@@ -52,24 +52,24 @@
     "release": "npm run lint && npm run build && changelogen --release && npm publish && git push --follow-tags"
   },
   "dependencies": {
-    "@nuxt/content": "^2.8.2",
+    "@nuxt/content": "^2.8.4",
     "@nuxtjs/color-mode": "^3.3.0",
-    "@unocss/nuxt": "^0.56.1",
+    "@unocss/nuxt": "^0.56.4",
     "@vueuse/nuxt": "^10.4.1",
     "medium-zoom": "^1.0.8",
     "nuxt-config-schema": "^0.4.6",
     "nuxt-icon": "^0.5.0",
     "nuxt-seo-kit": "^1.3.13",
-    "unocss": "^0.56.1",
+    "unocss": "^0.56.4",
     "vue3-carousel": "^0.3.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.43.0",
-    "@nuxt/devtools": "^0.8.4",
+    "@antfu/eslint-config": "1.0.0-beta.12",
+    "@nuxt/devtools": "^0.8.5",
     "changelogen": "^0.5.5",
-    "eslint": "^8.49.0",
+    "eslint": "^8.50.0",
     "lint-staged": "^14.0.1",
-    "nuxt": "^3.7.3",
+    "nuxt": "^3.7.4",
     "typescript": "^5.2.2",
     "vue": "^3.3.4"
   },
